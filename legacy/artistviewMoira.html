@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title> artist- Moira</title>
+	<style>
+		.websitename {
+		position: absolute;
+		width: 300px;
+		height: 28px;
+		left: 87px;
+		top: 32px;
+		font-family: 'roboto',sans-serif;
+		font-style: normal;
+		font-weight: bold;
+	  font-size: 24px;
+		line-height: 28px;
+	  color: #57BBBB;
+	}
+
+	.Homebutton2container  {
+		display:flex;
+			  position: absolute;
+		position: absolute;
+		width: 200px;
+		height: 20x;
+		left: 0px;
+		top: 115.24px;
+		background: #4A5952;
+		border: none;
+	}
+	
+
+	.Artistsbutton2container  {
+	display:flex;
+	  position: absolute;
+	
+		width: 200px;
+		height: 20px;
+	  left: 0px;
+	  top: 170px;
+	  	background: #4A5952;
+		border: none;
+	}
+
+	.Aboutbutton2container {
+	display:flex;
+	  position: absolute;
+	 position: absolute;
+		width: 200px;
+		height: 20px;
+	  left: 0px;
+	  top: 220px;
+	  	background: #4A5952;
+		border: none;
+	}
+
+	<!-- #navcontainer button {
+	 list-style: none;
+	 color: #fff;
+	 font-size: 20px;
+	 padding: 2px 10px;
+	 font-family:  'roboto',sans-serif;
+	 color: #57BBBB;
+	} -->
+
+	#navcontainer {
+		position: fixed;
+		width: 211px;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		transition: .4s;
+		background: #4A5952;
+	}
+
+	.home{
+			position: absolute;
+	width: 50px;
+	height: 20px;
+	padding-left: 70px;
+	padding-top: 0px;
+
+	font-family:  'roboto',sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+
+	color: #FFFFFF;
+
+	}
+	
+	.artists{
+		position: absolute;
+	width: 50px;
+	height: 20px;
+	padding-left: 70px;
+	padding-top: 0px;
+
+	font-family:  'roboto',sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+
+	color: #FFFFFF;
+
+	}
+	
+	.about{
+			position: absolute;
+		width: 50px;
+		height: 20px;
+		padding-left: 70px;
+		padding-top: 0px;
+
+		font-family: 'roboto',sans-serif;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 23px;
+
+		color: #FFFFFF;
+	}
+	
+	.icon{
+	position: absolute;
+	width:30px;
+	height:30px;
+	padding-left: 27px;
+	padding-top: 17px;
+	background:  #4A5952;
+	 
+	}
+	
+	.logo{
+	position: absolute;
+	width: 87px;
+	height: 74px;
+	left: 7px;
+	top: 33px;
+
+	}
+		
+		
+		.coverphoto {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 14.06%, rgba(63, 56, 70, 0.7) 76.05%, rgba(63, 56, 70, 0.7) 100%),url("https://assets-metrostyle.abs-cbn.com/prod/metro.style/media/assets/moirachooseslove_banner.png?ext=.png");
+					position: absolute;
+					background-repeat:no-repeat;
+					background-size:cover;	
+					width: 1135px;
+					height: 334px;	
+					left: 211px;
+					top: 0px;
+					
+				}
+	
+		
+			.profile {
+					background: url("https://wallpapercave.com/wp/wp4810233.jpg");
+					position: absolute;
+					background-size:cover;	
+					width: 199px;
+					height: 190px;
+					left: 251px;
+					top: 165px;
+					border-radius: 95px;
+		}
+			
+			.artistname{
+				
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 36px;
+				line-height: 42px;
+
+				color: #FFFFFF;
+				position: absolute;
+				width: 500px;
+				height: 500px;
+				left: 497px;
+				top: 264px;
+
+			}
+			
+			.career{
+				font-family:'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 240;
+				font-size: 18px;
+				line-height: 21px;
+				position: absolute;
+				width: 100px;
+				height: 21px;
+				left: 497px;
+				top: 290px;
+				color: #FFFFFF;
+
+			}
+			
+			.artistdescription{
+				position: absolute;
+				width: 874px;
+				height: 115px;
+				left: 288px;
+				top: 450px;
+				font-family: 'calibri',sans-serif;
+				font-style: normal;
+				font-weight: 300;
+				font-size: 24px;
+				line-height: 28px;
+				text-align: justify;
+
+				color: #FFFFFF;
+			}
+			
+			.top5music{ /*  this container is used for the whole section */
+				position: absolute;
+				width: 1089.01px;
+				height: 566.65px;
+				left: 218px;
+				top: 669px;
+			}
+			
+			.sectionname{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				line-height: 43px;
+				padding-left:10px;
+				position: absolute;
+				border-radius:12px;
+				width: 1120px;
+				height: 47.1px;
+				left: 0px;
+				top: 0px;
+
+				background: #76727A;
+
+			}
+			.musiccontainer1 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 47.2px;
+				margin: 3px;
+
+				
+			}
+			
+			.musiccontainer2 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130x;
+				height: 98.65px;
+				left: 0px;
+				top: 145.85px;
+				margin: 3px;
+				
+			}
+			.musiccontainer3 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 244.5px;
+				margin: 3px;
+			
+			}
+			 .musiccontainer4 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 343.15px;
+				margin: 3px;
+				
+			 }
+			.musiccontainer5 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 441.8px;
+				margin: 3px;
+			}
+			 .boxmusicname{
+				width: 500px;
+				height: 28px;
+				left: 321px;
+				top: 29.9px;
+				padding: 1px 70px;
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 24px;
+				line-height: 28px;
+
+				color: #FFFFFF;
+			 }
+			 
+			 .musicianname{ /*  this is under the music name inside the flex box */
+			 
+				position: absolute;
+				width: 100px;
+				height: 21px;
+				left: 215px;
+				top: 30.52px;
+
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 200px;
+				font-size: 16px;
+				line-height: 21px;
+				/* identical to box height */
+
+
+				color: #FFFFFF;
+
+			 }
+			
+			.numbering{
+				width: 30px;
+				height: 28px;
+				left: 321px;
+				top: 29.9px;
+				padding: 1px 15px;
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 24px;
+				line-height: 28px;
+
+				color: #FFFFFF;
+			}
+			.playbutton{ /* when clicked this would lead to youtube where the official music video is located */
+				position: absolute;
+				width: 35px;
+				height: 35px;
+				left: 943px;
+				top: 33.9px;
+				background-color: #3F3846;
+				border:none;
+			}
+			.musiclength{
+				position: absolute;
+				width: 48px;
+				height: 28px;
+				left: 782px;
+				top: 25.9px;
+
+				font-family:  'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 24px;
+				line-height: 0px;
+
+				color: #FFFFFF;
+			}
+			
+			
+			.albumsectioncontainer{
+				position: absolute;
+				width: 1089.01px;
+				height: 500px;
+				left: 211px;
+				top: 1273px;
+			}
+			
+			.albumsectionname{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				color:black;
+				line-height: 43px;
+				padding-left:10px;
+				position: absolute;
+				width: 1120px;
+				height: 47.1px;
+				border-radius:12px;
+				left: 8px;
+				top: 0px;
+				
+				background: #76727A;
+			}
+			.albumcard1{
+			background:url("https://m.media-amazon.com/images/I/814dfRoPhuL._SS500_.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 60px;
+			border-radius:12px;
+
+			}
+			
+			.albumcard2{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2734d73051f70ce7675e90b3142");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 60px;
+			border-radius:12px;
+			}
+			
+			 .albumcard3{
+			
+			background:url("https://images.genius.com/12844f2c1161c3125a649f5953abab97.500x500x1.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 60px;
+			border-radius:12px;
+			} 
+			
+			 .albumcard4{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b273b86c12f7bb9ae1468a024072");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 360px;
+			
+			}
+			
+			.albumcard5{
+			
+			background:url("data:image/jpeg;base64,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");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 360px;
+			}
+			
+			<!--.albumcard6{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b27341ad4e5ff4f6ab09aa71c107");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 360px;
+			}
+			
+			.albumcard7{
+			background:url("https://bandwagon-gig-finder.s3.amazonaws.com/editorials/uploads/pictures/18426/content_Mitsa_3kx3k_JPG.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 660px;
+
+			}
+			
+			.albumcard8{
+			
+			background:url("https://cdns-images.dzcdn.net/images/cover/9d96618a17538f1549ee47921943c8da/500x500.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 660px;
+			}
+			
+			.albumcard9{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b273ad53a59d8e9f59e96e14fec3");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 660px;
+			}
+			
+			.albumcard10{
+			
+			background:url("https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Ben%26Ben_-_Pebble_House_Vol._1_Kuwaderno.jpg/220px-Ben%26Ben_-_Pebble_House_Vol._1_Kuwaderno.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 960px;
+			
+			}
+			
+			.albumcard11{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2732292eb8483f27f5c1745654e");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 960px;
+			}
+			
+			.albumcard12{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2732576494dd7275f715d4ddd28");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 960px;
+			}
+			
+			.albumcard13{
+			background:url("https://i.scdn.co/image/ab67616d0000b2736100457f590103f3097fc33c");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1260px;
+
+			}
+			
+			.albumcard14{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b27325d6c441ac6038aa74d687a1");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1260px;
+			}
+			
+			.albumcard15{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b273189948156c1fadd99af89f50");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 1260px;
+			}
+			
+			.albumcard16{
+			
+			background:url("https://i.pinimg.com/736x/67/4f/ff/674fff55156c49bd7c4309eb8f43a377.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1560px;
+			box-shadow:40px;
+			}
+			
+			.albumcard17{
+			
+			background:url("https://static.wikia.nocookie.net/p-pop/images/e/e0/Ben%26Ben_Magpahinga_album_cover.png/revision/latest?cb=20210519022526");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1560px;
+			}
+			
+			.albumcard18{
+			
+			background:url("https://static.wikia.nocookie.net/p-pop/images/f/f4/Ben%26Ben_Upuan_album_cover.png/revision/latest?cb=20210519020252");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 1560px;
+			} -->
+			
+		<!-- 	.albumcard19{
+			background:url("https://images.genius.com/f5d9d741c20d906e3b7cacf64e76c2c5.1000x1000x1.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1860px;
+
+			}
+			
+			.albumcard20{
+			
+			background:url("https://static.qobuz.com/images/covers/9b/dq/mgmxa94jkdq9b_600.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1860px;
+			} -->
+			
+			.footer{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				color:white;
+				line-height: 83px;
+				padding-left:500px;
+				width: 1300px;
+				position: absolute;
+				width: 635px;
+				height: 83.86px;
+				left: 212px;
+				top: 1920px;
+				
+				background: #30223F;
+			
+			}
+	</style>
+		
+</head>
+
+<body style="background-color: #3F3846; ">
+		<div id="navcontainer">
+	
+	<img src="https://pbs.twimg.com/media/FIE_v_bVUAEJWxr?format=png&name=small" class="logo">
+	
+		<p class="websitename"> Musika </p>
+
+
+		<button class="Homebutton2container">
+			<a href="HomePage.html">
+			<p class="home"> Home </p>
+			
+			<div class="icon">
+				<svg width="24" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3859 2.72144C11.2976 1.65238 9.57946 1.65238 8.49122 2.72144L2.70804 8.40273C2.56635 8.54193 2.47104 8.72325 2.43562 8.921C1.74294 12.7883 1.69181 16.7474 2.28438 20.632L2.42503 21.5541H6.14568V13.6051C6.14568 13.075 6.56543 12.6453 7.08321 12.6453H13.7939C14.3117 12.6453 14.7314 13.075 14.7314 13.6051V21.5541H18.4521L18.5927 20.632C19.1853 16.7474 19.1341 12.7883 18.4415 8.921C18.406 8.72325 18.3107 8.54193 18.169 8.40273L12.3859 2.72144ZM7.19301 1.33633C9.00673 -0.445442 11.8704 -0.445442 13.6841 1.33633L19.4673 7.01762C19.893 7.43584 20.1793 7.98062 20.2858 8.57476C21.0164 12.6542 21.0704 16.8305 20.4453 20.9282L20.2193 22.4095C20.1259 23.0221 19.6105 23.4737 19.0049 23.4737H13.7939C13.2761 23.4737 12.8564 23.044 12.8564 22.5139V14.5649H8.02073V22.5139C8.02073 23.044 7.60098 23.4737 7.08321 23.4737H1.87218C1.26656 23.4737 0.751193 23.0221 0.657747 22.4095L0.431789 20.9282C-0.193286 16.8305 -0.13935 12.6542 0.591328 8.57476C0.697747 7.98062 0.984109 7.43584 1.40983 7.01761L7.19301 1.33633Z" fill="white"/>
+				</svg>
+			</div>
+		</a>
+		<button class="Artistsbutton2container">
+		<a href="Artists.html">
+			<p class="artists"> Artists </p>
+			<div  class="icon">
+								<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M9.6875 9.375C9.6875 6.44099 12.066 4.0625 15 4.0625C17.934 4.0625 20.3125 6.44099 20.3125 9.375C20.3125 12.309 17.934 14.6875 15 14.6875C12.066 14.6875 9.6875 12.309 9.6875 9.375ZM15 5.9375C13.1015 5.9375 11.5625 7.47652 11.5625 9.375C11.5625 11.2735 13.1015 12.8125 15 12.8125C16.8985 12.8125 18.4375 11.2735 18.4375 9.375C18.4375 7.47652 16.8985 5.9375 15 5.9375Z" fill="white"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18.4375C8.4467 18.4375 7.1875 19.6967 7.1875 21.25V22.7354C7.1875 22.758 7.20389 22.7773 7.22621 22.7809C12.3747 23.6215 17.6253 23.6215 22.7738 22.7809C22.7961 22.7773 22.8125 22.758 22.8125 22.7354V21.25C22.8125 19.6967 21.5533 18.4375 20 18.4375H19.5739C19.541 18.4375 19.5082 18.4427 19.4769 18.4529L18.395 18.8062C16.189 19.5265 13.811 19.5265 11.605 18.8062L10.5231 18.4529C10.4918 18.4427 10.459 18.4375 10.4261 18.4375H10ZM5.3125 21.25C5.3125 18.6612 7.41117 16.5625 10 16.5625H10.4261C10.6567 16.5625 10.8859 16.599 11.1051 16.6706L12.187 17.0238C14.0148 17.6207 15.9852 17.6207 17.813 17.0238L18.8949 16.6706C19.1141 16.599 19.3433 16.5625 19.5739 16.5625H20C22.5888 16.5625 24.6875 18.6612 24.6875 21.25V22.7354C24.6875 23.6769 24.0051 24.4797 23.0759 24.6314C17.7274 25.5046 12.2726 25.5046 6.92409 24.6314C5.99485 24.4797 5.3125 23.6769 5.3125 22.7354V21.25Z" fill="white"/>
+		</svg>
+		
+
+			</div>
+				</a>
+		</button>
+	
+		
+		<button class="Aboutbutton2container "> 
+		<a href="Aboutpage.html">
+			 <p class="about"> About </p>
+			<div  style="padding-left:22px; padding-top:12px;" >
+				<svg width="40" height="40" viewBox="0 0 38 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M19.422 14.6732C20.0566 14.6703 20.573 15.1079 20.5754 15.6504L20.6049 22.1999C20.6073 22.7424 20.0949 23.1846 19.4604 23.1874C18.8258 23.1903 18.3095 22.7528 18.307 22.2102L18.2775 15.6608C18.2751 15.1182 18.7875 14.676 19.422 14.6732Z" fill="white"/>
+				<path d="M19.4117 12.3809C20.2578 12.3771 20.941 11.7875 20.9377 11.0641C20.9345 10.3407 20.246 9.75731 19.3999 9.76112C18.5538 9.76493 17.8706 10.3545 17.8739 11.0779C17.8771 11.8013 18.5656 12.3847 19.4117 12.3809Z" fill="white"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M6.02501 16.3709C5.9965 10.0409 11.9747 4.88239 19.3778 4.84905C26.7808 4.81571 32.8053 9.92016 32.8338 16.2502C32.8623 22.5802 26.8841 27.7387 19.481 27.772C12.078 27.8054 6.05352 22.7009 6.02501 16.3709ZM19.3866 6.81388C13.2527 6.84151 8.29929 11.1157 8.32291 16.3606C8.34653 21.6054 13.3382 25.8348 19.4722 25.8072C25.6061 25.7796 30.5595 21.5054 30.5359 16.2605C30.5123 11.0157 25.5206 6.78625 19.3866 6.81388Z" fill="white"/>
+				</svg>
+
+
+			</div>
+			</a>
+		</button>
+
+
+	</div> 
+		
+		<div width= "1500px" height="334px"  class="coverphoto">
+	
+		</div>
+		
+		<div class="profile">
+		</div>
+		
+		<div class="artistname"> Moira
+	</div>
+		
+		<p class="career"> Singer </p>
+		
+		
+		<div class="artistdescription">
+		Moira Rachelle Bustamante Cruzado Dela Torre-Hernandez, better known for her stage name Moira Dela Torre,
+		is a Filipina singer-songwriter. She rose to fame for her covers of Imago's "Sundo", Moonstar88's "Torete",
+		and the Himig Handog-winning single "Titibo-tibo". Wikipedia
+
+		</div>
+		
+		<div class="top5music"> <!--music section container  -->
+			<div class="sectionname">
+			Top tracks
+			</div>
+				
+				 <div class="musiccontainer1"> <!--music container -->
+					<p class="numbering">1. </p>
+					<img src= "https://m.media-amazon.com/images/I/814dfRoPhuL._SS500_.jpg" height="85px" width="85px">
+					<p class="boxmusicname" > Tagpuan </p>
+					<p class="musicianname"> Moira </p>
+					<p class="musiclength"> 4:20</p> 
+					
+					<button class="playbutton">
+						<!--use this code in order to make the button work, use the code INSIDE the button tag,
+						BEFORE the SVG tag and do not forget to add an END TAG AFTER THE SVG or it would cause a chaos in this world--> 
+						<a href="https://www.youtube.com/watch?v=ACOwsm2Ulpo"> <!--insert the youtube link here, dapat official video-->
+							<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+							</svg>
+							</a>
+					</button>
+				 </div>
+				 
+				<div class="musiccontainer2"> <!--music container -->
+					<p class="numbering" > 2. </p>
+					<img src= "https://i1.sndcdn.com/artworks-000477632910-po9xur-t500x500.jpg" height="85px" width="85px">
+					<p  class="boxmusicname" > Ikaw at Ako </p>
+					<p class="musicianname"> Moira </p>
+					<p class="musiclength"> 4:29</p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=PeZ-rJqTwkw">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						
+						</svg>
+						</a>
+					</button>
+				 </div>
+				 
+				 <div class="musiccontainer3"> <!--music container -->
+					<p  class="numbering">3. </p>
+					<img src= "https://i.scdn.co/image/ab67616d0000b2734d73051f70ce7675e90b3142" height="85px" width="85px">
+					<p class="boxmusicname" > Paubaya </p>
+					<p class="musicianname"> Moira</p>
+					<p class="musiclength"> 4:42</p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=DmVjmzOmUO4">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						
+							<!--avoid changing the numbers specially here unless u want to die and get smacked using doggo chan and the giant slayer --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+					
+				 </div>
+				 
+				 <div class="musiccontainer4"> <!--music container -->
+					<p class="numbering">4. </p>
+					<img src= "https://cdns-images.dzcdn.net/images/cover/2b058932576a5ff63a42c1659c5c0d0f/500x500.jpg" height="85px" width="85px">
+					<p class="boxmusicname"> Before It Sinks in</p>
+					<p class="musicianname"> Moira </p>
+					<p class="musiclength"  > 4:23 </p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=zsNpW1x_S1w">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+				 </div>
+				 
+				 <div class="musiccontainer5"> <!--music container -->
+					<p class="numbering" >5. </p>
+					<img src= "https://cdns-images.dzcdn.net/images/cover/0d769d70cd517d9b1eed1cca0eaa5170/500x500.jpg" height="85px" width="85px">
+					<p class="boxmusicname"> Kahit Maputi na ang Buhok ko<p>
+					<p class="musicianname"> Moira </p>
+					<p class="musiclength"> 3:39 </p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=Rm1SaO0DFK4">	
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+
+				 </div>
+		</div>
+		<div  class="albumsectioncontainer">  <!-- album section container  -->
+			<div class="albumsectionname">
+			Albums
+			</div>
+				
+			<div    class="albumcard1" width="200px" height="200px">
+				
+			</div   >
+			
+			<div    class="albumcard2" width="200px" height="200px">
+				
+			</div   >
+			
+			 <div    class="albumcard3" width="200px" height="200px">
+
+				
+			</div   > 
+			
+		 <button class="albumcard4" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard5" width="200px" height="200px">
+
+				
+			</button>
+			
+			<!--<button class="albumcard6" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard7" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard8" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard9" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard10" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard11" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard12" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard13" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard14" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard15" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard16" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard17" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard18" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard18" width="200px" height="200px">
+
+				
+			</button>
+			
+			
+			
+			<!-- <button class="albumcard19" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard20" width="200px" height="200px">
+
+				
+			</button> --> -->
+		</div>
+		
+		<footer class="footer">
+			Moira Dela Torre
+		</footer>
+	
+	
+</body>
+
+
+</html>

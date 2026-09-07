@@ -1,0 +1,112 @@
+.nowplaying {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  border-bottom: none;
+  padding: 0;
+  min-height: var(--player-h);
+}
+
+/* seek strip runs edge to edge along the top of the bar */
+.np-seek {
+  position: relative;
+  height: 8px;
+  cursor: pointer;
+  background: rgba(0,0,0,.34);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.6);
+}
+.np-seek-fill {
+  position: relative;
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    linear-gradient(90deg, var(--aura-1), var(--aura-2), var(--aura-3));
+  background-size: 100% 100%, 220% 100%;
+  animation: iris-drift 5s linear infinite;
+  box-shadow: 0 0 14px color-mix(in oklab, var(--aura-2) 70%, transparent);
+}
+.np-seek-head {
+  position: absolute;
+  right: -6px; top: 50%;
+  width: 12px; height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff, #c3aaff);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 0 0 10px var(--aura-2);
+  opacity: 0;
+  transition: opacity var(--dur-2);
+}
+.np-seek:hover .np-seek-head { opacity: 1; }
+
+.np-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 12px var(--sp-5);
+}
+
+.np-track { display: flex; align-items: center; gap: var(--sp-3); min-width: 0; }
+.np-title { font-family: var(--font-display); font-weight: 600; font-size: var(--t-md); }
+.np-title:hover { color: var(--aura-3); }
+
+.np-transport { display: flex; align-items: center; gap: var(--sp-2); justify-self: center; }
+.np-play { font-size: 18px; }
+
+.np-meta { display: flex; align-items: center; gap: var(--sp-3); justify-content: flex-end; }
+.np-time { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.np-heart.is-on { color: #ff7ba6; text-shadow: 0 0 12px rgba(255,123,166,.8); }
+
+/* ---------------- Visualiser ---------------- */
+.viz {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 34px;
+}
+.viz-bar {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  transform-origin: bottom;
+  transform: scaleY(.15);
+  background: linear-gradient(180deg, var(--aura-3), var(--aura-1));
+  box-shadow: 0 0 6px color-mix(in oklab, var(--aura-3) 60%, transparent);
+  transition: transform 90ms linear;
+}
+
+@media (max-width: 900px) {
+  .np-body { grid-template-columns: minmax(0,1fr) auto; gap: var(--sp-3); padding: 10px var(--sp-3); }
+  .np-meta { display: none; }
+}
+@media (max-width: 560px) {
+  .np-transport .btn-sm { display: none; }
+}
+
+/* Playback-source badge: "30s" for a real preview, "~" for the
+   synthesised motif. Small, but it stops the player lying about
+   what you are hearing. */
+.np-mode {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 20px;
+  padding: 0 6px;
+  flex: none;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .2);
+}
+.np-mode.is-real {
+  color: #04303f;
+  background: linear-gradient(180deg, var(--aura-3), var(--aura-4));
+  border-color: rgba(255, 255, 255, .7);
+  box-shadow: var(--inner-top);
+}

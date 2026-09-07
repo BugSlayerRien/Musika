@@ -1,0 +1,101 @@
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: opacity 800ms var(--ease-glide);
+}
+.boot.is-leaving { opacity: 0; pointer-events: none; }
+.boot.is-leaving .boot-inner { animation: boot-out 800ms var(--ease-glide) forwards; }
+
+.boot-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 60% at 50% 30%, color-mix(in oklab, var(--aura-1) 70%, transparent), transparent 62%),
+    radial-gradient(70% 60% at 20% 80%, color-mix(in oklab, var(--aura-2) 60%, transparent), transparent 60%),
+    radial-gradient(70% 60% at 85% 70%, color-mix(in oklab, var(--aura-3) 50%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--scene-b), var(--void));
+}
+.boot-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 40%, rgba(6,1,16,.8) 100%);
+}
+
+.boot-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  text-align: center;
+  animation: boot-bloom 1200ms var(--ease-glide) both;
+}
+
+.boot-orb {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--sp-2);
+}
+.boot-orb-core {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 26%, #fff, rgba(255,255,255,.5) 20%, transparent 46%),
+    linear-gradient(var(--aura-angle), var(--aura-1), var(--aura-2));
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 0 50px color-mix(in oklab, var(--aura-2) 80%, transparent), var(--inner-top);
+  animation: float-bob 4s ease-in-out infinite;
+}
+.boot-orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(255,255,255,.85);
+  border-right-color: color-mix(in oklab, var(--aura-3) 80%, transparent);
+  animation: orbit 2.4s linear infinite;
+}
+.boot-orb-ring-2 {
+  inset: 14px;
+  border-top-color: color-mix(in oklab, var(--aura-2) 80%, transparent);
+  border-right-color: transparent;
+  border-bottom-color: rgba(255,255,255,.5);
+  animation: orbit-rev 3.4s linear infinite;
+}
+
+.boot-word {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 10vw, 96px);
+  letter-spacing: .18em;
+  margin: 0;
+  text-indent: .18em;
+}
+.boot-tag {
+  color: var(--ink-soft);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: var(--t-xs);
+  margin: 0;
+}
+
+.boot-enter { margin-top: var(--sp-3); }
+
+.boot-status { display: flex; align-items: center; gap: 8px; }
+.boot-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--aura-3);
+  box-shadow: 0 0 10px var(--aura-3);
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+.boot-note { max-width: 44ch; margin: var(--sp-2) 0 0; }

@@ -1,0 +1,150 @@
+/* ============================================================
+   MUSIKA — Motion library
+   Frutiger Aero moves like weather and water: slow drifts,
+   buoyant rises, refractive sweeps. Nothing linear, nothing sharp.
+   ============================================================ */
+
+/* --- oil-slick sweep across gradients and text --- */
+@keyframes iris-drift {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 280% 50%; }
+}
+
+/* --- aurora curtains breathing behind everything --- */
+@keyframes aurora-a {
+  0%,100% { transform: translate3d(-6%, -4%, 0) rotate(-4deg) scale(1.15); opacity: .85; }
+  50%     { transform: translate3d( 8%,  6%, 0) rotate( 6deg) scale(1.32); opacity: .55; }
+}
+@keyframes aurora-b {
+  0%,100% { transform: translate3d( 10%, 6%, 0) rotate(8deg) scale(1.25); opacity: .6; }
+  50%     { transform: translate3d(-8%, -8%, 0) rotate(-6deg) scale(1.05); opacity: .9; }
+}
+@keyframes aurora-c {
+  0%,100% { transform: translate3d(0, 10%, 0) scale(1.1); opacity: .45; }
+  50%     { transform: translate3d(4%, -12%, 0) scale(1.4); opacity: .75; }
+}
+
+/* --- particle weather ---
+   Bubbles, embers and sparkles rise; leaves and snow fall. Both
+   drift sideways and, where the sprite warrants it, rotate. --- */
+@keyframes particle-rise {
+  0%   { transform: translate3d(0, 12vh, 0) rotate(0deg) scale(.6); opacity: 0; }
+  8%   { opacity: var(--peak, .8); }
+  50%  { transform: translate3d(var(--drift, 22px), -48vh, 0) rotate(calc(var(--spin, 0deg) * .5)) scale(1); }
+  92%  { opacity: var(--peak, .8); }
+  100% { transform: translate3d(calc(var(--drift, 22px) * -1), -112vh, 0) rotate(var(--spin, 0deg)) scale(1.15); opacity: 0; }
+}
+
+@keyframes particle-fall {
+  0%   { transform: translate3d(0, -6vh, 0) rotate(0deg) scale(.75); opacity: 0; }
+  10%  { opacity: var(--peak, .8); }
+  50%  { transform: translate3d(var(--drift, 40px), 52vh, 0) rotate(calc(var(--spin, 0deg) * .5)) scale(1); }
+  90%  { opacity: var(--peak, .8); }
+  100% { transform: translate3d(calc(var(--drift, 40px) * -1), 118vh, 0) rotate(var(--spin, 0deg)) scale(.9); opacity: 0; }
+}
+
+/* --- caustics: light dancing on a pool floor --- */
+@keyframes caustic {
+  0%   { background-position:   0%   0%,  40%  60%; transform: scale(1); }
+  50%  { background-position:  60%  40%, 100%   0%; transform: scale(1.06); }
+  100% { background-position: 100% 100%,   0% 100%; transform: scale(1); }
+}
+
+/* --- specular sweep across a glossy surface on hover --- */
+@keyframes sheen-swipe {
+  0%   { transform: translateX(-130%) skewX(-18deg); }
+  100% { transform: translateX(230%) skewX(-18deg); }
+}
+
+/* --- buoyancy: cards bobbing like they float --- */
+@keyframes float-bob {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-7px) rotate(.35deg); }
+}
+
+/* --- soft pulse for live/now-playing indicators --- */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--aura-3) 65%, transparent); }
+  70%  { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* --- lens flare drifting across the viewport --- */
+@keyframes flare-travel {
+  0%   { transform: translate3d(-14vw, 6vh, 0) scale(.9); opacity: .0; }
+  20%  { opacity: .55; }
+  80%  { opacity: .35; }
+  100% { transform: translate3d(112vw, -10vh, 0) scale(1.25); opacity: 0; }
+}
+
+/* --- entrance choreography --- */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px) scale(.985); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(.82); }
+  60%  { opacity: 1; transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+@keyframes slide-rail {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* --- spinning refractive ring (loaders) --- */
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes orbit-rev { to { transform: rotate(-360deg); } }
+
+/* --- audio bars --- */
+@keyframes eq-bar {
+  0%,100% { transform: scaleY(.28); }
+  50%     { transform: scaleY(1); }
+}
+
+/* --- ripple on press --- */
+@keyframes ripple-out {
+  from { transform: scale(0); opacity: .55; }
+  to   { transform: scale(3.2); opacity: 0; }
+}
+
+/* --- vinyl spin --- */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+/* --- toast --- */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(24px) scale(.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- boot sequence --- */
+@keyframes boot-bloom {
+  0%   { opacity: 0; transform: scale(.4); filter: blur(24px); }
+  55%  { opacity: 1; transform: scale(1.06); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes boot-out {
+  to { opacity: 0; transform: scale(1.35); filter: blur(30px); }
+}
+
+/* --- helper classes --- */
+.anim-rise  { animation: rise-in var(--dur-3) var(--ease-glide) both; }
+.anim-pop   { animation: pop-in var(--dur-3) var(--ease-snap) both; }
+.anim-fade  { animation: fade-in var(--dur-3) var(--ease-glide) both; }
+.anim-rail  { animation: slide-rail var(--dur-2) var(--ease-glide) both; }
+.anim-float { animation: float-bob 7s ease-in-out infinite; }
+
+.stagger > * { animation: rise-in var(--dur-3) var(--ease-glide) both; }
+.stagger > *:nth-child(1) { animation-delay: 30ms; }
+.stagger > *:nth-child(2) { animation-delay: 70ms; }
+.stagger > *:nth-child(3) { animation-delay: 110ms; }
+.stagger > *:nth-child(4) { animation-delay: 150ms; }
+.stagger > *:nth-child(5) { animation-delay: 190ms; }
+.stagger > *:nth-child(6) { animation-delay: 230ms; }
+.stagger > *:nth-child(7) { animation-delay: 270ms; }
+.stagger > *:nth-child(8) { animation-delay: 310ms; }
+.stagger > *:nth-child(n+9) { animation-delay: 350ms; }
+
+:root[data-motion='calm'] .anim-float,
+:root[data-motion='calm'] .iridescent { animation: none; }

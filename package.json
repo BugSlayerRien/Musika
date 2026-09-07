@@ -1,0 +1,24 @@
+{
+  "name": "musika",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "MUSIKA \u2014 a Frutiger Aero platform for classic English songs from bands around the world.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "media": "node scripts/fetch-media.mjs",
+    "assets": "node scripts/build-assets.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "sharp": "^0.35.4",
+    "vite": "^5.4.8"
+  }
+}

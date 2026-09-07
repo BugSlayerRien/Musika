@@ -1,0 +1,182 @@
+/* ============================================================
+   The world behind the glass.
+   Base layer is a generated PNG wallpaper; everything above it
+   is atmosphere.
+   ============================================================ */
+
+.scenery {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--scene-b);
+}
+
+/* ---------------- Wallpaper photograph ---------------- */
+.scenery-photo {
+  position: absolute;
+  inset: -3%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: filter;
+}
+
+/* Tint/dim pass. With no wallpaper this becomes the ground itself. */
+.scenery-base {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 50% 110%, var(--scene-c) 0%, transparent 60%),
+    radial-gradient(90% 70% at 20% -10%, var(--scene-a) 0%, transparent 62%),
+    linear-gradient(180deg, var(--scene-b) 0%, var(--void) 100%);
+  transition: opacity var(--dur-3) var(--ease-glide);
+}
+
+/* On light styles the dimming pass would muddy the sky, so it
+   lightens instead of darkening. */
+:root[data-ink='dark'] .scenery-base {
+  background:
+    radial-gradient(120% 80% at 50% 110%, rgba(255, 255, 255, .55) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, .28) 0%, rgba(255, 255, 255, .5) 100%);
+}
+
+/* ---------------- Aurora curtains ---------------- */
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+.aurora-a {
+  width: 70vw; height: 70vw;
+  top: -22vw; left: -12vw;
+  background: radial-gradient(circle,
+      color-mix(in oklab, var(--aura-1) 85%, transparent) 0%,
+      transparent 66%);
+  animation: aurora-a 26s ease-in-out infinite;
+  opacity: calc(.8 * var(--aura-intensity));
+}
+.aurora-b {
+  width: 62vw; height: 62vw;
+  bottom: -20vw; right: -14vw;
+  background: radial-gradient(circle,
+      color-mix(in oklab, var(--aura-2) 82%, transparent) 0%,
+      transparent 64%);
+  animation: aurora-b 32s ease-in-out infinite;
+  opacity: calc(.7 * var(--aura-intensity));
+}
+.aurora-c {
+  width: 54vw; height: 54vw;
+  top: 24vh; left: 42vw;
+  background: radial-gradient(circle,
+      color-mix(in oklab, var(--aura-3) 78%, transparent) 0%,
+      transparent 62%);
+  animation: aurora-c 38s ease-in-out infinite;
+  opacity: calc(.5 * var(--aura-intensity));
+}
+/* Screen blending blows out a bright wallpaper — soften there. */
+:root[data-ink='dark'] .aurora { mix-blend-mode: soft-light; opacity: .6; }
+
+/* ---------------- Pool caustics ---------------- */
+.caustics {
+  position: absolute;
+  inset: -10%;
+  opacity: .16;
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .9) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, .7) 0 3px, transparent 4px);
+  background-size: 180px 180px, 260px 260px;
+  filter: blur(1.5px);
+  animation: caustic 24s ease-in-out infinite alternate;
+}
+
+/* ---------------- Particle weather ---------------- */
+.particles { position: absolute; inset: 0; }
+
+.particle {
+  position: absolute;
+  bottom: -18vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  animation-name: particle-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Leaves and snow fall instead of rising, and start above the fold. */
+.particles-leaf .particle,
+.particles-snow .particle {
+  bottom: auto;
+  top: -14vh;
+  animation-name: particle-fall;
+}
+
+/* Embers are small, hot and drift up fast. */
+.particles-ember .particle {
+  filter: drop-shadow(0 0 6px rgba(255, 154, 60, .8));
+}
+.particles-sparkle .particle {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--aura-2) 70%, transparent));
+}
+
+/* ---------------- Lens flares ---------------- */
+.flare {
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(4px);
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, .55) 0%, transparent 22%),
+    radial-gradient(circle, color-mix(in oklab, var(--aura-2) 70%, transparent) 0%, transparent 42%);
+  opacity: 0;
+}
+.flare-1 { top: 18vh; animation: flare-travel 34s linear infinite; }
+.flare-2 { top: 62vh; animation: flare-travel 46s linear infinite; animation-delay: -18s; transform: scale(.7); }
+
+/* ---------------- Vignette + CRT ---------------- */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 45%, rgba(6, 1, 16, .72) 100%);
+}
+:root[data-ink='dark'] .vignette {
+  background: radial-gradient(120% 100% at 50% 40%, transparent 55%, rgba(20, 40, 80, .3) 100%);
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  opacity: .16;
+  background: repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .16) 0px,
+      rgba(255, 255, 255, .16) 1px,
+      transparent 1px,
+      transparent 3px);
+  mix-blend-mode: overlay;
+}
+
+:root[data-motion='calm'] .aurora,
+:root[data-motion='calm'] .particle,
+:root[data-motion='calm'] .caustics,
+:root[data-motion='calm'] .flare { animation: none; }
+:root[data-motion='calm'] .particle { opacity: .4; }
+:root[data-motion='calm'] .flare { opacity: .3; }
+
+/* ---------------- Cursor trail ---------------- */
+.trail-dot {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}

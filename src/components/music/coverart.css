@@ -1,0 +1,71 @@
+.cover {
+  position: relative;
+  flex: none;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--lift-2), var(--inner-top);
+  border: 1px solid rgba(255,255,255,.32);
+  isolation: isolate;
+}
+.cover-svg { width: 100%; height: 100%; display: block; }
+
+.cover-spin { border-radius: 50%; animation: spin-slow 12s linear infinite; }
+.cover-spin::after {
+  content: '';
+  position: absolute;
+  inset: 38%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #14052e 45%, rgba(255,255,255,.5) 46%, transparent 52%);
+}
+:root[data-motion='calm'] .cover-spin { animation: none; }
+
+.cover-year {
+  position: absolute;
+  left: 7px; bottom: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 1px 3px rgba(0,0,0,.6);
+}
+.cover-flag {
+  position: absolute;
+  right: 6px; top: 5px;
+  font-size: 13px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+}
+.cover-spin .cover-year, .cover-spin .cover-flag,
+.cover-mini .cover-year, .cover-mini .cover-flag { display: none; }
+
+.cover-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.42) 48%, transparent 58%);
+  transform: translateX(-120%);
+  transition: transform 800ms var(--ease-glide);
+  pointer-events: none;
+}
+.cover:hover .cover-shine { transform: translateX(120%); }
+
+/* ---------------- Real artwork layer ----------------
+   Fades in over the procedural drawing once Apple's CDN
+   answers. If it never does, the drawing is the cover. */
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 520ms var(--ease-glide);
+  z-index: 1;
+}
+.cover-photo.is-loaded { opacity: 1; }
+.cover-photo.is-loaded ~ .cover-year,
+.cover-photo.is-loaded ~ .cover-flag { opacity: .92; }
+
+.cover-year, .cover-flag { z-index: 2; }
+.cover-shine { z-index: 3; }
+
+/* the spinning "vinyl" needs the label hole above the photo */
+.cover-spin::after { z-index: 4; }

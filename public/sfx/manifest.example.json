@@ -1,0 +1,24 @@
+{
+  "name": "My Retro UI Pack",
+  "credit": "効果音ラボ / soundeffect-lab.info — free for commercial use, no credit required",
+  "files": {
+    "click": "click.mp3",
+    "hover": "hover.mp3",
+    "confirm": "confirm.mp3",
+    "back": "back.mp3",
+    "success": "success.mp3",
+    "error": "error.mp3",
+    "on": "on.mp3",
+    "off": "off.mp3",
+    "play": "play.mp3",
+    "pause": "pause.mp3",
+    "nav": "nav.mp3",
+    "heart": "heart.mp3",
+    "coin": "coin.mp3",
+    "notify": "notify.mp3",
+    "bubble": "bubble.mp3",
+    "open": "open.mp3",
+    "close": "close.mp3",
+    "boot": "boot.mp3"
+  }
+}

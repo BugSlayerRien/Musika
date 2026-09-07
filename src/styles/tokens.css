@@ -1,0 +1,176 @@
+/* ============================================================
+   MUSIKA — Design tokens
+   Frutiger Aero, purple-iridescent dialect.
+   Every colour is a CSS variable so the Profile Studio can
+   repaint the entire application at runtime.
+   ============================================================ */
+
+:root {
+  /* ---- Aura: user-tunable hue anchors (Profile Studio writes these) ---- */
+  --aura-1: #8b5cf6;   /* primary violet   */
+  --aura-2: #e879f9;   /* magenta bloom    */
+  --aura-3: #22d3ee;   /* aqua counterpoint*/
+  --aura-4: #a7f3d0;   /* mint highlight   */
+  --aura-angle: 135deg;
+  --aura-intensity: 1;
+
+  /* ---- Substrate ---- */
+  --void:        #0d0420;
+  --deep:        #16082f;
+  --deep-2:      #1e0b40;
+  --deep-3:      #2a1157;
+  --panel-tint:  26, 10, 54;
+  --panel-alpha: 0.42;
+
+  /* ---- Ink ---- */
+  --ink:         #f6f1ff;
+  --ink-soft:    #cdbdf0;
+  --ink-muted:   #9c88c9;
+  --ink-inverse: #1a0838;
+
+  /* ---- Semantic ---- */
+  --ok:    #5ce6a8;
+  --warn:  #ffcf5c;
+  --bad:   #ff6b8b;
+  --info:  var(--aura-3);
+
+  /* ---- Glass ---- */
+  --glass-bg: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.09) 42%,
+      rgba(255, 255, 255, 0.03) 43%,
+      rgba(255, 255, 255, 0.08) 100%);
+  --glass-border: rgba(255, 255, 255, 0.34);
+  --glass-blur: 18px;
+  --glass-sat: 150%;
+
+  /* ---- Gloss highlight used on buttons / cards ---- */
+  --sheen: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.30) 46%,
+      rgba(255, 255, 255, 0.04) 47%,
+      rgba(255, 255, 255, 0.00) 100%);
+
+  /* ---- Iridescent film (oil-slick sweep) ---- */
+  --iris: linear-gradient(
+      100deg,
+      #ff9ce8 0%, #b08bff 18%, #7ad7ff 36%,
+      #9dffd8 52%, #ffe58f 68%, #ff9ce8 86%, #b08bff 100%);
+
+  /* ---- Elevation ---- */
+  --lift-1: 0 1px 2px rgba(8, 2, 20, .35), 0 4px 14px rgba(8, 2, 20, .28);
+  --lift-2: 0 2px 6px rgba(8, 2, 20, .40), 0 14px 38px rgba(8, 2, 20, .38);
+  --lift-3: 0 6px 18px rgba(8, 2, 20, .46), 0 34px 80px rgba(8, 2, 20, .48);
+  --inner-top: inset 0 1px 0 rgba(255, 255, 255, .55);
+  --inner-bottom: inset 0 -1px 0 rgba(255, 255, 255, .12);
+  --glow: 0 0 24px color-mix(in oklab, var(--aura-1) 60%, transparent);
+
+  /* ---- Geometry ----
+     --radius-scale is driven by the active style: 1.1 for pillowy
+     Aero, 0.18 for the sharp-cornered gothic and cyber styles. */
+  --radius-scale: 1;
+  --r-xs: calc(6px * var(--radius-scale));
+  --r-sm: calc(10px * var(--radius-scale));
+  --r-md: calc(16px * var(--radius-scale));
+  --r-lg: calc(24px * var(--radius-scale));
+  --r-xl: calc(34px * var(--radius-scale));
+  --r-pill: 999px;
+
+  /* ---- Inset fields ---- */
+  --field-bg: linear-gradient(180deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, .12)), rgba(255, 255, 255, .06);
+  --field-border: rgba(255, 255, 255, .24);
+  --field-shadow: inset 0 2px 6px rgba(0, 0, 0, .4), 0 1px 0 rgba(255, 255, 255, .16);
+  --field-arrow: var(--ink-soft);
+
+  /* ---- Rhythm ---- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
+
+  /* ---- Type ---- */
+  --font-ui: 'Rubik', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Quicksand', 'Trebuchet MS', system-ui, sans-serif;
+  --t-xs: 11px; --t-sm: 13px; --t-md: 15px;
+  --t-lg: 19px; --t-xl: 26px; --t-2xl: 38px; --t-3xl: 56px;
+
+  /* ---- Motion ---- */
+  --ease-glide: cubic-bezier(.22, 1, .36, 1);
+  --ease-snap:  cubic-bezier(.34, 1.56, .64, 1);
+  --dur-1: 120ms; --dur-2: 240ms; --dur-3: 420ms; --dur-4: 900ms;
+
+  /* ---- Layout ---- */
+  --shell-max: 1440px;
+  --rail-w: 236px;
+  --topbar-h: 66px;
+  --player-h: 92px;
+}
+
+/* ---------- Light-ground styles ----------
+   Aqua, Meadow and Frost put the glass over a bright photograph,
+   which is the original Aero arrangement: white panels, dark type.
+   Everything below re-points the same variables rather than
+   introducing a second set of component rules. ---------- */
+:root[data-ink='dark'] {
+  --ink:         #1c1136;
+  --ink-soft:    #453563;
+  --ink-muted:   #6f6193;
+  --ink-inverse: #ffffff;
+
+  --glass-bg: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.62) 0%,
+      rgba(255, 255, 255, 0.34) 42%,
+      rgba(255, 255, 255, 0.22) 43%,
+      rgba(255, 255, 255, 0.38) 100%);
+  --glass-border: rgba(255, 255, 255, 0.9);
+
+  --sheen: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.55) 46%,
+      rgba(255, 255, 255, 0.10) 47%,
+      rgba(255, 255, 255, 0.00) 100%);
+
+  --lift-1: 0 1px 2px rgba(20, 40, 70, .16), 0 4px 14px rgba(20, 40, 70, .14);
+  --lift-2: 0 2px 6px rgba(20, 40, 70, .20), 0 14px 38px rgba(20, 40, 70, .18);
+  --lift-3: 0 6px 18px rgba(20, 40, 70, .24), 0 34px 80px rgba(20, 40, 70, .22);
+  --inner-top: inset 0 1px 0 rgba(255, 255, 255, .95);
+  --inner-bottom: inset 0 -1px 0 rgba(120, 140, 180, .18);
+
+  --field-bg: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .72)), #fff;
+  --field-border: rgba(90, 110, 150, .34);
+  --field-shadow: inset 0 2px 5px rgba(40, 60, 100, .18), 0 1px 0 rgba(255, 255, 255, .9);
+  --field-arrow: #5c5185;
+
+  /* The pastel oil-slick vanishes against a bright sky, so the
+     iridescent treatment gets a deeper, more saturated mix here. */
+  --iris: linear-gradient(
+      100deg,
+      #c81d8f 0%, #6d28d9 18%, #0369a1 36%,
+      #047857 52%, #b45309 68%, #c81d8f 86%, #6d28d9 100%);
+
+  --glow: 0 0 22px color-mix(in oklab, var(--aura-1) 40%, transparent);
+}
+
+/* ---------- Wallpaper presets (Profile Studio → Scenery) ---------- */
+:root[data-scenery='aurora']   { --scene-a: #2a0f57; --scene-b: #120632; --scene-c: #3d1b7a; }
+:root[data-scenery='lagoon']   { --scene-a: #10284d; --scene-b: #0a1930; --scene-c: #1c4f6e; }
+:root[data-scenery='meadow']   { --scene-a: #1d3b2a; --scene-b: #0d1f18; --scene-c: #2f6b45; }
+:root[data-scenery='sunset']   { --scene-a: #4a1440; --scene-b: #200a2c; --scene-c: #7a2352; }
+:root[data-scenery='chrome']   { --scene-a: #262336; --scene-b: #12111c; --scene-c: #45415e; }
+:root { --scene-a: #2a0f57; --scene-b: #120632; --scene-c: #3d1b7a; }
+
+/* ---------- Density ---------- */
+:root[data-density='cozy']    { --density-scale: 1; }
+:root[data-density='compact'] { --density-scale: .86; }
+:root[data-density='roomy']   { --density-scale: 1.14; }
+:root { --density-scale: 1; }
+
+/* ---------- Accessibility / performance escape hatches ---------- */
+:root[data-motion='calm'] { --dur-1: 1ms; --dur-2: 1ms; --dur-3: 1ms; --dur-4: 1ms; }
+:root[data-glass='off'] { --glass-blur: 0px; --panel-alpha: 0.82; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-1: 1ms; --dur-2: 1ms; --dur-3: 1ms; --dur-4: 1ms; }
+}

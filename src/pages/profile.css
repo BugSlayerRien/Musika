@@ -1,0 +1,109 @@
+.profile-banner { overflow: hidden; }
+
+.profile-banner-art {
+  position: relative;
+  height: 170px;
+  background:
+    radial-gradient(90% 140% at 20% 0%, color-mix(in oklab, var(--aura-1) 75%, transparent), transparent 62%),
+    radial-gradient(80% 130% at 85% 20%, color-mix(in oklab, var(--aura-2) 70%, transparent), transparent 60%),
+    linear-gradient(var(--aura-angle), var(--scene-a), var(--scene-c));
+}
+.profile-banner-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28), transparent 45%, rgba(10,2,26,.6)),
+    repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 2px, transparent 2px 9px);
+}
+
+.profile-banner-body {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  padding: 0 var(--sp-5) var(--sp-4);
+  margin-top: -64px;
+  position: relative;
+  z-index: 2;
+}
+.profile-orb { box-shadow: 0 12px 32px rgba(8,2,20,.6); }
+
+.profile-quickstats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.16);
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+}
+.profile-quickstats b {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin-right: 4px;
+}
+
+/* passport stamps */
+.passport-grid {
+  display: grid;
+  gap: var(--sp-2);
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
+.stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 6px;
+  border-radius: var(--r-md);
+  border: 1px dashed rgba(255,255,255,.2);
+  background: rgba(0,0,0,.22);
+  filter: grayscale(1);
+  opacity: .42;
+  transition: all var(--dur-2) var(--ease-glide);
+}
+.stamp.is-got {
+  filter: none;
+  opacity: 1;
+  border-style: solid;
+  border-color: rgba(255,255,255,.36);
+  background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.04));
+  box-shadow: var(--inner-top), var(--lift-1);
+}
+.stamp:hover { transform: translateY(-3px) rotate(-2deg); opacity: 1; }
+
+/* badge tiles */
+.badge-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--sp-4);
+  text-align: center;
+  align-items: center;
+}
+.badge-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,.5));
+}
+
+.sub-row, .guest-row {
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.guest-dot {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+@media (max-width: 700px) {
+  .profile-banner-body { margin-top: -46px; padding: 0 var(--sp-3) var(--sp-3); }
+}

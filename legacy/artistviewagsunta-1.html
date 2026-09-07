@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title> artist- Agsunta</title>
+	<style>
+		.websitename {
+		position: absolute;
+		width: 300px;
+		height: 28px;
+		left: 87px;
+		top: 32px;
+		font-family: 'roboto',sans-serif;
+		font-style: normal;
+		font-weight: bold;
+	  font-size: 24px;
+		line-height: 28px;
+	  color: #57BBBB;
+	}
+
+	.Homebutton2container  {
+		display:flex;
+			  position: absolute;
+		position: absolute;
+		width: 200px;
+		height: 20x;
+		left: 0px;
+		top: 115.24px;
+		background: #4A5952;
+		border: none;
+	}
+	
+
+	.Artistsbutton2container  {
+	display:flex;
+	  position: absolute;
+	
+		width: 200px;
+		height: 20px;
+	  left: 0px;
+	  top: 170px;
+	  	background: #4A5952;
+		border: none;
+	}
+
+	.Aboutbutton2container {
+	display:flex;
+	  position: absolute;
+	 position: absolute;
+		width: 200px;
+		height: 20px;
+	  left: 0px;
+	  top: 220px;
+	  	background: #4A5952;
+		border: none;
+	}
+
+	<!-- #navcontainer button {
+	 list-style: none;
+	 color: #fff;
+	 font-size: 20px;
+	 padding: 2px 10px;
+	 font-family:  'roboto',sans-serif;
+	 color: #57BBBB;
+	} -->
+
+	#navcontainer {
+		position: fixed;
+		width: 211px;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		transition: .4s;
+		background: #4A5952;
+	}
+
+	.home{
+			position: absolute;
+	width: 50px;
+	height: 20px;
+	padding-left: 70px;
+	padding-top: 0px;
+
+	font-family:  'roboto',sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+
+	color: #FFFFFF;
+
+	}
+	
+	.artists{
+		position: absolute;
+	width: 50px;
+	height: 20px;
+	padding-left: 70px;
+	padding-top: 0px;
+
+	font-family:  'roboto',sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+
+	color: #FFFFFF;
+
+	}
+	
+	.about{
+			position: absolute;
+		width: 50px;
+		height: 20px;
+		padding-left: 70px;
+		padding-top: 0px;
+
+		font-family: 'roboto',sans-serif;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 23px;
+
+		color: #FFFFFF;
+	}
+	
+	.icon{
+	position: absolute;
+	width:30px;
+	height:30px;
+	padding-left: 27px;
+	padding-top: 17px;
+	background:  #4A5952;
+	 
+	}
+	
+	.logo{
+	position: absolute;
+	width: 87px;
+	height: 74px;
+	left: 7px;
+	top: 33px;
+
+	}
+		
+		
+		.coverphoto {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 14.06%, rgba(63, 56, 70, 0.7) 76.05%, rgba(63, 56, 70, 0.7) 100%),url("https://m.media-amazon.com/images/M/MV5BNWZkZjJmNDMtYTU4NS00OGQ0LThmZWQtNzRlNDA1MDVmN2ViXkEyXkFqcGdeQXVyNTI5NjIyMw@@._V1_.jpg");
+					position: absolute;
+					background-repeat:no-repeat;
+					background-size:cover;	
+					width: 1135px;
+					height: 334px;	
+					left: 211px;
+					top: 0px;
+					
+				}
+	
+		
+			.profile {
+					background: url("https://sa.kapamilya.com/absnews/abscbnnews/media/2019/tvpatrol/05/19/20190524-agsunta.jpg");
+					position: absolute;
+					background-size:cover;	
+					width: 199px;
+					height: 190px;
+					left: 251px;
+					top: 165px;
+					border-radius: 95px;
+		}
+			
+			.artistname{
+				
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 36px;
+				line-height: 42px;
+
+				color: #FFFFFF;
+				position: absolute;
+				width: 500px;
+				height: 500px;
+				left: 497px;
+				top: 264px;
+
+			}
+			
+			.career{
+				font-family:'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 240;
+				font-size: 18px;
+				line-height: 21px;
+				position: absolute;
+				width: 70px;
+				height: 21px;
+				left: 497px;
+				top: 290px;
+				color: #FFFFFF;
+
+			}
+			
+			.artistdescription{
+				position: absolute;
+				width: 874px;
+				height: 115px;
+				left: 288px;
+				top: 450px;
+				font-family: 'calibri',sans-serif;
+				font-style: normal;
+				font-weight: 300;
+				font-size: 24px;
+				line-height: 28px;
+				text-align: justify;
+
+				color: #FFFFFF;
+			}
+			
+			.top5music{ /*  this container is used for the whole section */
+				position: absolute;
+				width: 1015.01px;
+				height: 566.65px;
+				left: 218px;
+				top: 669px;
+			}
+			
+			.sectionname{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				line-height: 43px;
+				padding-left:10px;
+				position: absolute;
+				width: 1120px;
+				height: 47.1px;
+				left: 0px;
+				top: 0px;
+				border-radius:20px;
+				background: #76727A;
+
+			}
+			.musiccontainer1 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 47.2px;
+				margin: 3px;
+
+				
+			}
+			
+			.musiccontainer2 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130x;
+				height: 98.65px;
+				left: 0px;
+				top: 145.85px;
+				margin: 3px;
+				
+			}
+			.musiccontainer3 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 244.5px;
+				margin: 3px;
+			
+			}
+			 .musiccontainer4 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 343.15px;
+				margin: 3px;
+				
+			 }
+			.musiccontainer5 { /* this container contains one music only */
+				display: flex;
+				position: absolute;
+				width:1130px;
+				height: 98.65px;
+				left: 0px;
+				top: 441.8px;
+				margin: 3px;
+			}
+			 .boxmusicname{
+				width: 300px;
+				height: 28px;
+				left: 321px;
+				top: 29.9px;
+				padding: 1px 70px;
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 24px;
+				line-height: 28px;
+
+				color: #FFFFFF;
+			 }
+			 
+			 .musicianname{ /*  this is under the music name inside the flex box */
+			 
+				position: absolute;
+				width: 100px;
+				height: 21px;
+				left: 215px;
+				top: 30.52px;
+
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 200px;
+				font-size: 16px;
+				line-height: 21px;
+				/* identical to box height */
+
+
+				color: #FFFFFF;
+
+			 }
+			
+			.numbering{
+				width: 30px;
+				height: 28px;
+				left: 321px;
+				top: 29.9px;
+				padding: 1px 15px;
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 24px;
+				line-height: 28px;
+
+				color: #FFFFFF;
+			}
+			.playbutton{ /* when clicked this would lead to youtube where the official music video is located */
+				position: absolute;
+				width: 35px;
+				height: 35px;
+				left: 943px;
+				top: 33.9px;
+				background-color: #3F3846;
+				border:none;
+			}
+			.musiclength{
+				position: absolute;
+				width: 48px;
+				height: 28px;
+				left: 782px;
+				top: 25.9px;
+
+				font-family:  'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 24px;
+				line-height: 0px;
+
+				color: #FFFFFF;
+			}
+			
+			
+			.albumsectioncontainer{
+				position: absolute;
+				width: 1089.01px;
+				height: 500px;
+				left: 211px;
+				top: 1273px;
+			}
+			
+			.albumsectionname{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				color:black;
+				line-height: 43px;
+				padding-left:10px;
+				position: absolute;
+				width: 1120px;
+				height: 47.1px;
+				border-radius:20px;
+				left: 8px;
+				top: 0px;
+				
+				background: #76727A;
+			}
+			.albumcard1{
+			background:url("https://i.scdn.co/image/ab67616d0000b273b3e0577d66ebad545ccb4b58");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 60px;
+			border-radius:12px;
+			cursor:pointer;
+			}
+			
+			.albumcard2{
+			
+			background:url("https://images.genius.com/40ac5c674a1d308f8af0390fc42b35e2.600x600x1.webp");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 60px;
+			border-radius:12px;
+			}
+			
+			.albumcard3{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2731ed78248c1b5d31a5102d0e3");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 60px;
+			border-radius:12px;
+			}
+			
+			<!-- .albumcard4{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2732663ced6fef97a1286a65f01");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 360px;
+			
+			}
+			
+			.albumcard5{
+			
+			background:url("https://static.wikia.nocookie.net/p-pop/images/8/88/Doorsalbum.webp/revision/latest?cb=20210223070946");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 360px;
+			}
+			
+			.albumcard6{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b27341ad4e5ff4f6ab09aa71c107");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 360px;
+			}
+			
+			.albumcard7{
+			background:url("https://bandwagon-gig-finder.s3.amazonaws.com/editorials/uploads/pictures/18426/content_Mitsa_3kx3k_JPG.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 660px;
+
+			}
+			
+			.albumcard8{
+			
+			background:url("https://cdns-images.dzcdn.net/images/cover/9d96618a17538f1549ee47921943c8da/500x500.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 660px;
+			}
+			
+			.albumcard9{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b273ad53a59d8e9f59e96e14fec3");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 660px;
+			}
+			
+			.albumcard10{
+			
+			background:url("https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Ben%26Ben_-_Pebble_House_Vol._1_Kuwaderno.jpg/220px-Ben%26Ben_-_Pebble_House_Vol._1_Kuwaderno.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 960px;
+			
+			}
+			
+			.albumcard11{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2732292eb8483f27f5c1745654e");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 960px;
+			}
+			
+			.albumcard12{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b2732576494dd7275f715d4ddd28");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 960px;
+			}
+			
+			.albumcard13{
+			background:url("https://i.scdn.co/image/ab67616d0000b2736100457f590103f3097fc33c");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1260px;
+
+			}
+			
+			.albumcard14{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b27325d6c441ac6038aa74d687a1");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1260px;
+			}
+			
+			.albumcard15{
+			
+			background:url("https://i.scdn.co/image/ab67616d0000b273189948156c1fadd99af89f50");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 1260px;
+			}
+			
+			.albumcard16{
+			
+			background:url("https://i.pinimg.com/736x/67/4f/ff/674fff55156c49bd7c4309eb8f43a377.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1560px;
+			box-shadow:40px;
+			}
+			
+			.albumcard17{
+			
+			background:url("https://static.wikia.nocookie.net/p-pop/images/e/e0/Ben%26Ben_Magpahinga_album_cover.png/revision/latest?cb=20210519022526");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1560px;
+			}
+			
+			.albumcard18{
+			
+			background:url("https://static.wikia.nocookie.net/p-pop/images/f/f4/Ben%26Ben_Upuan_album_cover.png/revision/latest?cb=20210519020252");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 850px;
+			top: 1560px;
+			} -->
+			
+		<!-- 	.albumcard19{
+			background:url("https://images.genius.com/f5d9d741c20d906e3b7cacf64e76c2c5.1000x1000x1.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 50px;
+			top: 1860px;
+
+			}
+			
+			.albumcard20{
+			
+			background:url("https://static.qobuz.com/images/covers/9b/dq/mgmxa94jkdq9b_600.jpg");
+			position: absolute;
+			width: 272px;
+			height: 272px;
+			background-repeat:no-repeat;
+			background-size:cover;	
+			left: 450px;
+			top: 1860px;
+			} -->
+			
+			.footer{
+				font-family: 'roboto',sans-serif;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 28px;
+				color:white;
+				line-height: 83px;
+				padding-left:500px;
+				width: 1300px;
+				position: absolute;
+				width: 634px;
+				height: 83.86px;
+				left: 212px;
+				top: 1700px;
+				
+				background: #30223F;
+			
+			}
+	</style>
+		
+</head>
+
+<body style="background-color: #3F3846; ">
+		<div id="navcontainer">
+	
+	<img src="https://pbs.twimg.com/media/FIE_v_bVUAEJWxr?format=png&name=small" class="logo">
+	
+		<p class="websitename"> Musika </p>
+
+
+		<button class="Homebutton2container">
+			<a href="HomePage.html">
+			<p class="home"> Home </p>
+			
+			<div class="icon">
+				<svg width="24" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3859 2.72144C11.2976 1.65238 9.57946 1.65238 8.49122 2.72144L2.70804 8.40273C2.56635 8.54193 2.47104 8.72325 2.43562 8.921C1.74294 12.7883 1.69181 16.7474 2.28438 20.632L2.42503 21.5541H6.14568V13.6051C6.14568 13.075 6.56543 12.6453 7.08321 12.6453H13.7939C14.3117 12.6453 14.7314 13.075 14.7314 13.6051V21.5541H18.4521L18.5927 20.632C19.1853 16.7474 19.1341 12.7883 18.4415 8.921C18.406 8.72325 18.3107 8.54193 18.169 8.40273L12.3859 2.72144ZM7.19301 1.33633C9.00673 -0.445442 11.8704 -0.445442 13.6841 1.33633L19.4673 7.01762C19.893 7.43584 20.1793 7.98062 20.2858 8.57476C21.0164 12.6542 21.0704 16.8305 20.4453 20.9282L20.2193 22.4095C20.1259 23.0221 19.6105 23.4737 19.0049 23.4737H13.7939C13.2761 23.4737 12.8564 23.044 12.8564 22.5139V14.5649H8.02073V22.5139C8.02073 23.044 7.60098 23.4737 7.08321 23.4737H1.87218C1.26656 23.4737 0.751193 23.0221 0.657747 22.4095L0.431789 20.9282C-0.193286 16.8305 -0.13935 12.6542 0.591328 8.57476C0.697747 7.98062 0.984109 7.43584 1.40983 7.01761L7.19301 1.33633Z" fill="white"/>
+				</svg>
+			</div>
+		</a>
+		<button class="Artistsbutton2container">
+		<a href="Artists.html">
+			<p class="artists"> Artists </p>
+			<div  class="icon">
+								<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M9.6875 9.375C9.6875 6.44099 12.066 4.0625 15 4.0625C17.934 4.0625 20.3125 6.44099 20.3125 9.375C20.3125 12.309 17.934 14.6875 15 14.6875C12.066 14.6875 9.6875 12.309 9.6875 9.375ZM15 5.9375C13.1015 5.9375 11.5625 7.47652 11.5625 9.375C11.5625 11.2735 13.1015 12.8125 15 12.8125C16.8985 12.8125 18.4375 11.2735 18.4375 9.375C18.4375 7.47652 16.8985 5.9375 15 5.9375Z" fill="white"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M10 18.4375C8.4467 18.4375 7.1875 19.6967 7.1875 21.25V22.7354C7.1875 22.758 7.20389 22.7773 7.22621 22.7809C12.3747 23.6215 17.6253 23.6215 22.7738 22.7809C22.7961 22.7773 22.8125 22.758 22.8125 22.7354V21.25C22.8125 19.6967 21.5533 18.4375 20 18.4375H19.5739C19.541 18.4375 19.5082 18.4427 19.4769 18.4529L18.395 18.8062C16.189 19.5265 13.811 19.5265 11.605 18.8062L10.5231 18.4529C10.4918 18.4427 10.459 18.4375 10.4261 18.4375H10ZM5.3125 21.25C5.3125 18.6612 7.41117 16.5625 10 16.5625H10.4261C10.6567 16.5625 10.8859 16.599 11.1051 16.6706L12.187 17.0238C14.0148 17.6207 15.9852 17.6207 17.813 17.0238L18.8949 16.6706C19.1141 16.599 19.3433 16.5625 19.5739 16.5625H20C22.5888 16.5625 24.6875 18.6612 24.6875 21.25V22.7354C24.6875 23.6769 24.0051 24.4797 23.0759 24.6314C17.7274 25.5046 12.2726 25.5046 6.92409 24.6314C5.99485 24.4797 5.3125 23.6769 5.3125 22.7354V21.25Z" fill="white"/>
+		</svg>
+		
+
+			</div>
+				</a>
+		</button>
+	
+		
+		<button class="Aboutbutton2container "> 
+		<a href="Aboutpage.html">
+			 <p class="about"> About </p>
+			<div  style="padding-left:22px; padding-top:12px;" >
+				<svg width="40" height="40" viewBox="0 0 38 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M19.422 14.6732C20.0566 14.6703 20.573 15.1079 20.5754 15.6504L20.6049 22.1999C20.6073 22.7424 20.0949 23.1846 19.4604 23.1874C18.8258 23.1903 18.3095 22.7528 18.307 22.2102L18.2775 15.6608C18.2751 15.1182 18.7875 14.676 19.422 14.6732Z" fill="white"/>
+				<path d="M19.4117 12.3809C20.2578 12.3771 20.941 11.7875 20.9377 11.0641C20.9345 10.3407 20.246 9.75731 19.3999 9.76112C18.5538 9.76493 17.8706 10.3545 17.8739 11.0779C17.8771 11.8013 18.5656 12.3847 19.4117 12.3809Z" fill="white"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M6.02501 16.3709C5.9965 10.0409 11.9747 4.88239 19.3778 4.84905C26.7808 4.81571 32.8053 9.92016 32.8338 16.2502C32.8623 22.5802 26.8841 27.7387 19.481 27.772C12.078 27.8054 6.05352 22.7009 6.02501 16.3709ZM19.3866 6.81388C13.2527 6.84151 8.29929 11.1157 8.32291 16.3606C8.34653 21.6054 13.3382 25.8348 19.4722 25.8072C25.6061 25.7796 30.5595 21.5054 30.5359 16.2605C30.5123 11.0157 25.5206 6.78625 19.3866 6.81388Z" fill="white"/>
+				</svg>
+
+
+			</div>
+			</a>
+		</button>
+
+
+	</div> 
+	
+		
+		<div width= "1500px" height="334px"  class="coverphoto">
+	
+		</div>
+		
+		<div class="profile">
+		</div>
+		
+		<div class="artistname"> Agsunta
+	</div>
+		
+		<p class="career"> Musical Group </p>
+		
+		
+		<div class="artistdescription">
+		AGSUNTA is a homegrown band from De La Salle College of Saint Benilde with members Jireh Singson 
+		(vocals/rhythm guitars), Mikel Arevalo (lead guitars/backup vocals), Josh Planas (bass/backup vocals),
+		and Stephen Arevalo (drums). All band members are pursuing a degree in Bachelor of Arts in Music Production.
+			Record Union
+
+		</div>
+		
+		<div class="top5music"> <!--music section container  -->
+			<div class="sectionname">
+			Top tracks
+			</div>
+				
+				 <div class="musiccontainer1"> <!--music container -->
+					<p class="numbering">1. </p>
+					<img src= "https://images.genius.com/40ac5c674a1d308f8af0390fc42b35e2.600x600x1.webp" height="85px" width="85px">
+					<p class="boxmusicname" > Kahit Kungwari Man Lang</p>
+					<p class="musicianname"> Agsunta </p>
+					<p class="musiclength"> 3:42 </p> 
+					
+					<button class="playbutton">
+						<!--use this code in order to make the button work, use the code INSIDE the button tag,
+						BEFORE the SVG tag and do not forget to add an END TAG AFTER THE SVG or it would cause a chaos in this world--> 
+						<a href="https://www.youtube.com/watch?v=aWlWynJq1A0"> <!--insert the youtube link here, dapat official video-->
+							<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+							</svg>
+							</a>
+					</button>
+				 </div>
+				 
+				<div class="musiccontainer2"> <!--music container -->
+					<p class="numbering" > 2. </p>
+					<img src= "https://i.scdn.co/image/ab67616d0000b2731ed78248c1b5d31a5102d0e3" height="85px" width="85px">
+					<p  class="boxmusicname" > Magkasuyo Buong Gabi </p>
+					<p class="musicianname"> Agsunta </p>
+					<p class="musiclength"> 4;01 </p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=1j5kyTvctyQ">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						
+						</svg>
+						</a>
+					</button>
+				 </div>
+				 
+				 <div class="musiccontainer3"> <!--music container -->
+					<p  class="numbering">3. </p>
+					<img src= "https://i.scdn.co/image/ab67616d0000b2731ed78248c1b5d31a5102d0e3" height="85px" width="85px">
+					<p class="boxmusicname" > Di' ba Halata </p>
+					<p class="musicianname"> Agsunta </p>
+					<p class="musiclength"> 3:47</p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=PUj5F0Eb6BI">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						
+							<!--avoid changing the numbers specially here unless u want to die and get smacked using doggo chan and the giant slayer --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+					
+				 </div>
+				 
+				 <div class="musiccontainer4"> <!--music container -->
+					<p class="numbering">4. </p>
+					<img src= "https://i.scdn.co/image/ab67616d0000b273d06159224eff7a05b13867a9" height="85px" width="85px">
+					<p class="boxmusicname"> Alas Dose</p>
+					<p class="musicianname"> Agsunta </p>
+					<p class="musiclength"  > 4:25 </p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=8QDkyC-TaQ0">
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+				 </div>
+				 
+				 <div class="musiccontainer5"> <!--music container -->
+					<p class="numbering" >5. </p>
+					<img src= "https://i.scdn.co/image/ab67616d0000b2736386bb8828d9159fbe94b32b" height="85px" width="85px">
+					<p class="boxmusicname"> Kung Di' na Ako </p>
+					<p class="musicianname"> Agsunta </p>
+					<p class="musiclength"> 4:41 </p> 
+					<button class="playbutton">
+					<a href="https://www.youtube.com/watch?v=bBlOEh7H0wg">	
+						<svg width="35" height="35" viewBox="0 0 43 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!--avoid changing the number specially here --> <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5184 15.2888C36.2955 16.408 36.2955 18.5918 34.5184 19.7111C29.1478 23.0935 23.1507 25.7596 16.7517 27.6094L15.5827 27.9474C13.3462 28.5939 10.9839 27.3623 10.6811 25.4831C9.83514 20.2328 9.83514 14.767 10.6811 9.5167C10.9839 7.63757 13.3462 6.40592 15.5827 7.05246L16.7517 7.3904C23.1507 9.24027 29.1478 11.9063 34.5184 15.2888ZM32.8737 17.981C33.2604 17.7375 33.2604 17.2624 32.8737 17.0189C27.7284 13.7783 21.9829 11.224 15.8523 9.45175L14.6832 9.11381C14.101 8.9455 13.432 9.26627 13.3458 9.80115C12.5303 14.8626 12.5302 20.1372 13.3458 25.1987C13.432 25.7336 14.101 26.0543 14.6832 25.886L15.8522 25.5481C21.9829 23.7758 27.7284 21.2216 32.8737 17.981Z" fill="white"/>
+						</svg>
+					</a>
+					</button>
+
+				 </div>
+		</div>
+		<div  class="albumsectioncontainer">  <!-- album section container  -->
+			<div class="albumsectionname">
+			Albums
+			</div>
+				
+			<div    class="albumcard1" width="200px" height="200px">
+				
+			</div   >
+			
+			<div    class="albumcard2" width="200px" height="200px">
+				
+			</div   >
+			
+			<div    class="albumcard3" width="200px" height="200px">
+
+				
+			</div   >
+			
+			<!-- <button class="albumcard4" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard5" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard6" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard7" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard8" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard9" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard10" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard11" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard12" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard13" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard14" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard15" width="200px" height="200px">
+				
+			</button>
+			
+			<button class="albumcard16" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard17" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard18" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard18" width="200px" height="200px">
+
+				
+			</button>
+			
+			
+			
+			<!-- <button class="albumcard19" width="200px" height="200px">
+
+				
+			</button>
+			
+			<button class="albumcard20" width="200px" height="200px">
+
+				
+			</button> --> -->
+		</div>
+		
+		<footer class="footer">
+			Agsunta
+		</footer>
+	
+	
+</body>
+
+
+</html>
