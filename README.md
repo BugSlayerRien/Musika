@@ -17,7 +17,24 @@ Search API — 52 of 53 entries, with a procedural fallback for anything unmatch
 
 ---
 
+## Status
+
+A complete front end with **no backend yet**. Everything is client-side:
+
+- Your profile, hearts, anthems, passport stamps and submissions persist to `localStorage` in
+  your browser only.
+- The catalogue, bands and countries are static modules in `src/data/`.
+- Every community member other than you is seed data, and submissions are marked
+  *pending review* but go nowhere.
+
+[docs/NEXT-STEPS.md](docs/NEXT-STEPS.md) is the plan for turning this into a multi-user
+platform — schema, API, auth, moderation and build order.
+
+---
+
 ## Running it
+
+Requires **Node 18+** (Vite 5).
 
 ```bash
 npm install
@@ -190,7 +207,7 @@ src/
 ```
 
 Each component that needs page-specific CSS keeps it next to itself (`nowplaying.css`,
-`orb.css`, `studio.css`…). The four files in `styles/` are the shared system.
+`orb.css`, `studio.css`…). The five files in `styles/` are the shared system.
 
 ---
 
@@ -209,8 +226,8 @@ Each component that needs page-specific CSS keeps it next to itself (`nowplaying
 ## Stack
 
 React 18 · Vite 5 · React Router 6 · plain CSS with custom properties · Web Audio API ·
-`sharp` (build-time only, for the PNG generator). No UI framework, no icon font, no runtime
-dependencies beyond React.
+`sharp` (build-time only, for the PNG generator). No UI framework and no icon font — the only
+runtime dependencies are React, React DOM and React Router.
 
 ---
 
@@ -226,5 +243,15 @@ dependencies beyond React.
 
 ## `legacy/`
 
-The original static site — 18 absolute-positioned HTML pages — is kept in `legacy/` for reference.
-Nothing in the app reads from it.
+The original static site — 20 absolute-positioned HTML pages — is kept in `legacy/` for reference.
+Nothing in the app reads from it. A 31 MB IDE-plugin zip that shipped with it is gitignored.
+
+---
+
+## Credits
+
+- Cover artwork and 30-second previews © their respective rights holders, linked (not hosted)
+  via Apple's iTunes Search API.
+- Fonts from Google Fonts under the SIL Open Font License.
+- Everything else — wallpapers, decals, sleeves, avatars, interface sound — is original to this
+  project. Provenance in [docs/ASSETS.md](docs/ASSETS.md).
