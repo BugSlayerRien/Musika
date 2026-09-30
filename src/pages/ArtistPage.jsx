@@ -9,6 +9,7 @@ import { artistById, artistsByCountry } from '@/data/artists';
 import { countryById } from '@/data/countries';
 import { songsByArtist, formatCount } from '@/data/songs';
 import { Flag } from '@/components/music/Flag';
+import { countryConfirmed, musicBrainzUrl } from '@/data/verified';
 
 export function ArtistPage() {
   const { id } = useParams();
@@ -47,6 +48,12 @@ export function ArtistPage() {
               <Chip tone="aqua">{artist.genre}</Chip>
               <Chip>formed {artist.formed}</Chip>
               <Chip>{artist.city}</Chip>
+              {countryConfirmed(artist.id) && (
+                <a href={musicBrainzUrl(artist.id)} target="_blank" rel="noreferrer"
+                   className="tip" data-tip="Country independently confirmed by MusicBrainz">
+                  <Chip tone="mint">✓ MusicBrainz</Chip>
+                </a>
+              )}
             </div>
             <h1><span className="iridescent">{artist.name}</span></h1>
             <p className="lede">{artist.blurb}</p>

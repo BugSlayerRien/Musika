@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "media": "node scripts/fetch-media.mjs",
-    "assets": "node scripts/build-assets.mjs"
+    "assets": "node scripts/build-assets.mjs",
+    "verify": "node scripts/verify-artists.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

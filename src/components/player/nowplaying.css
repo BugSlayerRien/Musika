@@ -110,3 +110,33 @@
   border-color: rgba(255, 255, 255, .7);
   box-shadow: var(--inner-top);
 }
+
+/* ---------------- Radio mode ----------------
+   A live stream has no length, so the seek strip becomes a
+   moving "we are receiving" indicator rather than progress. */
+.np-seek-live { cursor: default; overflow: hidden; }
+.np-seek-live-bar {
+  height: 100%;
+  width: 34%;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    linear-gradient(90deg, transparent, var(--aura-3), var(--aura-2), transparent);
+  animation: np-live-sweep 2.6s ease-in-out infinite;
+}
+@keyframes np-live-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(340%); }
+}
+:root[data-motion='calm'] .np-seek-live-bar { animation: none; width: 100%; opacity: .5; }
+
+.np-radio-badge {
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  flex: none;
+  border-radius: var(--r-md);
+  font-size: 26px;
+  background: linear-gradient(var(--aura-angle), var(--aura-1), var(--aura-2));
+  border: 1px solid rgba(255,255,255,.5);
+  box-shadow: var(--inner-top), var(--lift-1);
+}

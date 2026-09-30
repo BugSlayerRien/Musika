@@ -1,0 +1,1067 @@
+{
+  "eraserheads": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "b1640065-cc2f-4f92-ac4f-eb2d9f31d8da",
+    "mbName": "Eraserheads",
+    "country": "ph",
+    "beginArea": "Quezon City",
+    "formed": 1989,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "rock",
+      "alternative rock",
+      "pop rock",
+      "opm",
+      "spolariom",
+      "p-pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "the-dawn": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "b5e00271-d3f1-40ab-ae07-f8e16a0b49aa",
+    "mbName": "The Dawn",
+    "country": "ph",
+    "beginArea": "Philippines",
+    "formed": 1985,
+    "type": "Group",
+    "disambiguation": "Filipino band",
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "introvoys": {
+    "checked": true,
+    "found": true,
+    "score": 13,
+    "mbid": "a34187bc-42a1-438e-b931-e3920607ebc3",
+    "mbName": "Introvoys",
+    "country": null,
+    "beginArea": "Philippines",
+    "formed": 1986,
+    "type": "Group",
+    "disambiguation": "Filipino Band",
+    "tags": [
+      "pop rock",
+      "opm",
+      "p-pop"
+    ],
+    "agrees": {
+      "country": null,
+      "formed": false
+    }
+  },
+  "side-a": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "93017ab5-1525-4da2-98e4-965d83725118",
+    "mbName": "Side A",
+    "country": "ph",
+    "beginArea": "Manila",
+    "formed": 1985,
+    "type": "Group",
+    "disambiguation": "Filipino band",
+    "tags": [
+      "pop",
+      "opm",
+      "p-pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "rivermaya": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "915a3ad2-45c7-4a37-90f6-16f57aeddbde",
+    "mbName": "Rivermaya",
+    "country": "ph",
+    "beginArea": "Manila",
+    "formed": 1994,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "alternative rock",
+      "opm",
+      "p-pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "urbandub": {
+    "checked": true,
+    "found": true,
+    "score": 13,
+    "mbid": "ad3b44ad-712c-4048-842e-2a39a3322234",
+    "mbName": "Urbandub",
+    "country": null,
+    "beginArea": null,
+    "formed": 2000,
+    "type": "Group",
+    "disambiguation": "Filipino rock band",
+    "tags": [],
+    "agrees": {
+      "country": null,
+      "formed": true
+    }
+  },
+  "true-faith": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "46529d01-1004-474b-972a-aaa26687a75f",
+    "mbName": "True Faith",
+    "country": "ph",
+    "beginArea": "Quezon City",
+    "formed": 1993,
+    "type": "Group",
+    "disambiguation": "Philippines rock band",
+    "tags": [
+      "pop rock",
+      "opm",
+      "p-pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "alamid": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "f42db29a-34cc-465a-a4af-213b87bd1d7c",
+    "mbName": "Alamid",
+    "country": "ph",
+    "beginArea": "Philippines",
+    "formed": 1987,
+    "type": "Group",
+    "disambiguation": "Filipino Group",
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "wolfgang": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "d2744fa3-5e21-468b-b3ff-8f58d0211b61",
+    "mbName": "Wolfgang",
+    "country": "ph",
+    "beginArea": "Manila",
+    "formed": 1992,
+    "type": "Group",
+    "disambiguation": "Filipino rock band",
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "sugar-hiccup": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "7a69dd38-bd9a-4f70-a15b-9b7d0b6fe870",
+    "mbName": "Sugar Hiccup",
+    "country": "ph",
+    "beginArea": null,
+    "formed": 1994,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "the-cardigans": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "3e55d51d-687f-4a9d-af96-2fabccf802e5",
+    "mbName": "The Cardigans",
+    "country": "se",
+    "beginArea": "Jönköping",
+    "formed": 1992,
+    "type": "Group",
+    "disambiguation": "Swedish rock band",
+    "tags": [
+      "rock",
+      "pop",
+      "alternative rock",
+      "swedish",
+      "sweden",
+      "indie rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "roxette": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "d3b2711f-2baa-441a-be95-14945ca7e6ea",
+    "mbName": "Roxette",
+    "country": "se",
+    "beginArea": "Halmstad",
+    "formed": 1986,
+    "type": "Group",
+    "disambiguation": "Swedish pop rock duo",
+    "tags": [
+      "rock",
+      "pop",
+      "swedish",
+      "seen live",
+      "power pop",
+      "soft rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "abba": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "d87e52c5-bb8d-4da8-b941-9f4928627dc8",
+    "mbName": "ABBA",
+    "country": "se",
+    "beginArea": "Stockholm",
+    "formed": 1972,
+    "type": "Group",
+    "disambiguation": "Swedish pop group",
+    "tags": [
+      "rock",
+      "electronic",
+      "synthpop",
+      "pop",
+      "swedish",
+      "sweden"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "a-ha": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "7364dea6-ca9a-48e3-be01-b44ad0d19897",
+    "mbName": "a‐ha",
+    "country": "no",
+    "beginArea": "Oslo",
+    "formed": 1983,
+    "type": "Group",
+    "disambiguation": "Norwegian synth‐pop band",
+    "tags": [
+      "rock",
+      "electronic",
+      "post-rock",
+      "synthpop",
+      "pop",
+      "norwegian"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "the-sugarcubes": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "95303251-46d5-4239-89c8-eaf0b0947a11",
+    "mbName": "The Sugarcubes",
+    "country": "is",
+    "beginArea": "Reykjavík",
+    "formed": 1986,
+    "type": "Group",
+    "disambiguation": "Icelandic alternative/post-punk rock band",
+    "tags": [
+      "rock",
+      "electronic",
+      "alternative rock",
+      "80s",
+      "post-punk",
+      "iceland"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "shocking-blue": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "8b399704-17f4-4001-943b-1d2b848940aa",
+    "mbName": "Shocking Blue",
+    "country": "nl",
+    "beginArea": "Den Haag",
+    "formed": 1967,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "rock",
+      "psychedelic rock",
+      "classic pop and rock",
+      "garage pop",
+      "nederbeat"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "golden-earring": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "75336c3d-2833-46cb-8037-b835cd7d646d",
+    "mbName": "Golden Earring",
+    "country": "nl",
+    "beginArea": "Den Haag",
+    "formed": 1961,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "rock",
+      "pop",
+      "progressive rock",
+      "heavy metal",
+      "metal",
+      "new wave"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "the-cranberries": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "c98d40fd-f6cf-4b26-883e-eaa515ee2851",
+    "mbName": "The Cranberries",
+    "country": "ie",
+    "beginArea": "Limerick",
+    "formed": 1989,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "rock",
+      "pop",
+      "alternative rock",
+      "irish",
+      "british",
+      "grunge"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "thin-lizzy": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "6a726ac6-019e-455c-8bbb-571a77bed52e",
+    "mbName": "Thin Lizzy",
+    "country": "ie",
+    "beginArea": "Dublin",
+    "formed": 1969,
+    "type": "Group",
+    "disambiguation": "Irish hard rock band",
+    "tags": [
+      "rock",
+      "heavy metal",
+      "metal",
+      "hard rock",
+      "blues rock",
+      "classic rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "scorpions": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "c3cceeed-3332-4cf0-8c4c-bbde425147b6",
+    "mbName": "Scorpions",
+    "country": "de",
+    "beginArea": "Hannover",
+    "formed": 1965,
+    "type": "Group",
+    "disambiguation": "German rock band",
+    "tags": [
+      "rock",
+      "progressive rock",
+      "70s",
+      "hairmetal",
+      "80s",
+      "heavy metal"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "nena": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "c954d136-c7fd-4fd9-8bb0-fb0491fc6a02",
+    "mbName": "Nena",
+    "country": "de",
+    "beginArea": "Berlin",
+    "formed": 1982,
+    "type": "Group",
+    "disambiguation": "the band, until 1987",
+    "tags": [
+      "synthpop",
+      "pop",
+      "germany",
+      "german",
+      "new wave",
+      "neue deutsche welle"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "split-enz": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "2bbdc83c-3d4d-44f4-8e26-6bc748d358dd",
+    "mbName": "Split Enz",
+    "country": "nz",
+    "beginArea": "Auckland",
+    "formed": 1972,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "new wave",
+      "art rock",
+      "indie pop",
+      "new zealand",
+      "art-rock",
+      "auckland"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "crowded-house": {
+    "checked": true,
+    "found": true,
+    "score": 13,
+    "mbid": "9854d99f-d954-4c0f-9ae5-58a0cdd885f5",
+    "mbName": "Crowded House",
+    "country": "au",
+    "beginArea": "Melbourne",
+    "formed": 1985,
+    "type": "Group",
+    "disambiguation": "Australian rock group",
+    "tags": [
+      "rock",
+      "pop",
+      "alternative rock",
+      "indie rock",
+      "soft rock",
+      "jangle pop"
+    ],
+    "agrees": {
+      "country": false,
+      "formed": true
+    }
+  },
+  "acdc": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "66c662b6-6e2f-4930-8610-912e24c63ed1",
+    "mbName": "AC/DC",
+    "country": "au",
+    "beginArea": "Sydney",
+    "formed": 1973,
+    "type": "Group",
+    "disambiguation": "Australian hard rock band",
+    "tags": [
+      "rock",
+      "heavy metal",
+      "metal",
+      "australian",
+      "band",
+      "hard rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "inxs": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "481bf5f9-2e7c-4c44-b08a-05b32bc7c00d",
+    "mbName": "INXS",
+    "country": "au",
+    "beginArea": "Sydney",
+    "formed": 1977,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "rock",
+      "pop",
+      "alternative rock",
+      "australian",
+      "new wave",
+      "pop rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "the-guess-who": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "4c567499-3a26-40e3-9471-20feb6c73767",
+    "mbName": "The Guess Who",
+    "country": "ca",
+    "beginArea": "Winnipeg",
+    "formed": 1962,
+    "type": "Group",
+    "disambiguation": "Canadian rock band",
+    "tags": [
+      "rock",
+      "canadian",
+      "hard rock",
+      "psychedelic rock",
+      "blues rock",
+      "classic rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "rush": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "534ee493-bfac-4575-a44a-0ae41e2c3fe4",
+    "mbName": "Rush",
+    "country": "ca",
+    "beginArea": "Toronto",
+    "formed": 1968,
+    "type": "Group",
+    "disambiguation": "Canadian rock trio",
+    "tags": [
+      "rock",
+      "progressive rock",
+      "heavy metal",
+      "metal",
+      "canadian",
+      "hard rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "loudness": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "513b6df2-f44c-4484-b99d-97f79266cb4a",
+    "mbName": "LOUDNESS",
+    "country": "jp",
+    "beginArea": "Osaka",
+    "formed": 1981,
+    "type": "Group",
+    "disambiguation": "Japanese heavy metal band",
+    "tags": [
+      "heavy metal",
+      "metal",
+      "hard rock",
+      "fixme label mess"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "dara-puspita": {
+    "checked": true,
+    "found": true,
+    "score": 13,
+    "mbid": "408ced15-3e21-4d3d-8586-5e9e154f4117",
+    "mbName": "Dara Puspita",
+    "country": null,
+    "beginArea": null,
+    "formed": 1967,
+    "type": "Group",
+    "disambiguation": "from Indonesia",
+    "tags": [
+      "garage rock"
+    ],
+    "agrees": {
+      "country": null,
+      "formed": false
+    }
+  },
+  "white-shoes": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "534a836e-a17a-4f56-8c7a-7ffdf2ab5ad3",
+    "mbName": "White Shoes & The Couples Company",
+    "country": "id",
+    "beginArea": "Jakarta",
+    "formed": 2002,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "dance and electronica",
+      "indonesia",
+      "pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "the-quests": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "42612967-6fd1-4280-8581-a1a4ae02bc54",
+    "mbName": "The Quests",
+    "country": "sg",
+    "beginArea": null,
+    "formed": 1961,
+    "type": "Group",
+    "disambiguation": "Singapore 60s band",
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "parikrama": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "2446a659-acaf-4af7-8399-44b78ac78d9e",
+    "mbName": "Parikrama",
+    "country": "in",
+    "beginArea": null,
+    "formed": 1991,
+    "type": "Group",
+    "disambiguation": "Indian rock band",
+    "tags": [],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "indian-ocean": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "cf8b9160-72b3-4b0d-b2c9-88bb1b7aa80f",
+    "mbName": "Indian Ocean",
+    "country": "in",
+    "beginArea": "Delhi",
+    "formed": 1990,
+    "type": "Group",
+    "disambiguation": "fusion band from India",
+    "tags": [
+      "indian pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "sepultura": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "1d93c839-22e7-4f76-ad84-d27039efc048",
+    "mbName": "Sepultura",
+    "country": "br",
+    "beginArea": "Belo Horizonte",
+    "formed": 1984,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "heavy metal",
+      "thrash metal",
+      "metal",
+      "death metal",
+      "brazilian",
+      "brasil"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "pfm": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "85e65d5f-4d9b-407d-b261-882caa52bff3",
+    "mbName": "Premiata Forneria Marconi",
+    "country": "it",
+    "beginArea": "Milano",
+    "formed": 1970,
+    "type": "Group",
+    "disambiguation": "Italian progressive rock",
+    "tags": [
+      "symphonic prog",
+      "contemporary folk",
+      "italian",
+      "progressive rock",
+      "european",
+      "rock progresivo italiano"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "phoenix": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "8d455809-96b3-4bb6-8829-ea4beb580d35",
+    "mbName": "Phoenix",
+    "country": "fr",
+    "beginArea": "Versailles",
+    "formed": 1999,
+    "type": "Group",
+    "disambiguation": "French indie band",
+    "tags": [
+      "rock",
+      "alternative rock",
+      "french",
+      "france",
+      "francophone",
+      "français"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "air": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "cb67438a-7f50-4f2b-a6f1-2bb2729fd538",
+    "mbName": "Air",
+    "country": "fr",
+    "beginArea": "Versailles",
+    "formed": 1995,
+    "type": "Group",
+    "disambiguation": "French band",
+    "tags": [
+      "trip-hop",
+      "electronic",
+      "downtempo",
+      "soundtrack",
+      "pop",
+      "alternative rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "him": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "4cc51547-88ae-49a2-bf7e-0ef65ee7a94c",
+    "mbName": "HIM",
+    "country": "fi",
+    "beginArea": "Helsinki",
+    "formed": 1991,
+    "type": "Group",
+    "disambiguation": "Finnish rock band",
+    "tags": [
+      "rock",
+      "electronic",
+      "alternative rock",
+      "metal",
+      "finnish",
+      "gothic metal"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "hanoi-rocks": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "fca2e3b9-d29c-4b41-bde9-0ea5fd279843",
+    "mbName": "Hanoi Rocks",
+    "country": "fi",
+    "beginArea": "Helsinki",
+    "formed": 1980,
+    "type": "Group",
+    "disambiguation": "Finnish rock band",
+    "tags": [
+      "rock",
+      "finnish",
+      "glam rock",
+      "finland",
+      "classic pop and rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "aqua": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "a1ed5e33-22ff-4e7d-a457-42f4309e135f",
+    "mbName": "Aqua",
+    "country": "dk",
+    "beginArea": "Copenhagen",
+    "formed": 1994,
+    "type": "Group",
+    "disambiguation": "Danish Euro‐dance group",
+    "tags": [
+      "pop",
+      "norwegian",
+      "dance",
+      "danish",
+      "electro",
+      "denmark"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "mew": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "fa927f59-d443-418a-b741-e557208aaf09",
+    "mbName": "Mew",
+    "country": "dk",
+    "beginArea": "Hellerup",
+    "formed": 1995,
+    "type": "Group",
+    "disambiguation": "Danish alternative rock band",
+    "tags": [
+      "alternative rock",
+      "shoegaze",
+      "indie rock",
+      "dream pop",
+      "crossover prog",
+      "rock and indie"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "aphrodites-child": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "51625f3d-adfa-4096-a7b9-113f5225cc58",
+    "mbName": "Aphrodite’s Child",
+    "country": "gr",
+    "beginArea": "Paris",
+    "formed": 1968,
+    "type": "Group",
+    "disambiguation": "Greek psychedelic rock band",
+    "tags": [
+      "psychedelic pop",
+      "progressive rock",
+      "psychedelic rock",
+      "baroque pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "riverside": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "985c5cc9-2dc1-49ac-8806-5b66586a2d58",
+    "mbName": "Riverside",
+    "country": "pl",
+    "beginArea": "Warsaw",
+    "formed": 2001,
+    "type": "Group",
+    "disambiguation": "Polish progressive rock band",
+    "tags": [
+      "progressive rock",
+      "progressive metal",
+      "polish"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "dover": {
+    "checked": true,
+    "found": true,
+    "score": 19,
+    "mbid": "74508b04-b376-4f38-966c-f16d53eab3de",
+    "mbName": "Dover",
+    "country": "es",
+    "beginArea": "Madrid",
+    "formed": 1992,
+    "type": "Group",
+    "disambiguation": "Spanish alt rock/pop punk band",
+    "tags": [
+      "rock",
+      "alternative rock"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  },
+  "bjork": {
+    "checked": true,
+    "found": true,
+    "score": 18,
+    "mbid": "87c5dedd-371d-4a53-9f7f-80522fb7f3cb",
+    "mbName": "Björk",
+    "country": "is",
+    "beginArea": "Reykjavík",
+    "formed": 1965,
+    "type": "Person",
+    "disambiguation": null,
+    "tags": [
+      "trip-hop",
+      "rock",
+      "electronic",
+      "downtempo",
+      "soundtrack",
+      "synthpop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": null
+    }
+  },
+  "fela-kuti": {
+    "checked": true,
+    "found": true,
+    "score": 18,
+    "mbid": "6514cffa-fbe0-4965-ad88-e998ead8a82a",
+    "mbName": "Fela Kuti",
+    "country": "ng",
+    "beginArea": "Ogun",
+    "formed": 1938,
+    "type": "Person",
+    "disambiguation": null,
+    "tags": [
+      "jazz",
+      "world",
+      "jazz-funk",
+      "afrobeat",
+      "nigerian",
+      "african"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": null
+    }
+  },
+  "johnny-clegg": {
+    "checked": true,
+    "found": true,
+    "score": 14,
+    "mbid": "08e3c40b-dbec-49aa-96ff-e1ab37ae6aca",
+    "mbName": "Johnny Clegg and Savuka",
+    "country": "za",
+    "beginArea": "Johannesburg",
+    "formed": 1985,
+    "type": "Group",
+    "disambiguation": null,
+    "tags": [
+      "mbaqanga",
+      "maskanda",
+      "south african",
+      "afrique du sud",
+      "south africa",
+      "sud-africain"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": false
+    }
+  },
+  "shonen-knife": {
+    "checked": true,
+    "found": true,
+    "score": 14,
+    "mbid": "5089b746-7612-4a13-9153-33ff2560e161",
+    "mbName": "少年ナイフ",
+    "country": "jp",
+    "beginArea": "Osaka",
+    "formed": 1981,
+    "type": "Group",
+    "disambiguation": "Japanese pop‐punk girl trio",
+    "tags": [
+      "alternative rock",
+      "punk",
+      "indie rock",
+      "power pop",
+      "pop-punk",
+      "indie pop"
+    ],
+    "agrees": {
+      "country": true,
+      "formed": true
+    }
+  }
+}

@@ -1,0 +1,59 @@
+/* ============================================================
+   The live dial. Reads as a row of tuner presets on the glass.
+   ============================================================ */
+
+.radio-list {
+  display: grid;
+  gap: var(--sp-2);
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+}
+
+.radio-station {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .05);
+  color: var(--ink);
+  text-align: left;
+  transition: transform var(--dur-2) var(--ease-glide),
+              background var(--dur-2), border-color var(--dur-2),
+              box-shadow var(--dur-2);
+}
+.radio-station:hover {
+  background: rgba(255, 255, 255, .12);
+  transform: translateY(-2px);
+}
+.radio-station.is-tuned {
+  border-color: rgba(255, 255, 255, .6);
+  background: linear-gradient(90deg,
+      color-mix(in oklab, var(--aura-1) 32%, transparent), rgba(255, 255, 255, .06) 70%);
+  box-shadow: var(--inner-top), var(--glow);
+}
+
+/* The little transport lamp on the left of each preset. */
+.radio-led {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, .06));
+  border: 1px solid rgba(255, 255, 255, .34);
+  box-shadow: var(--inner-top);
+}
+.radio-station.is-tuned .radio-led {
+  background: linear-gradient(180deg, var(--aura-3), var(--aura-1));
+  border-color: rgba(255, 255, 255, .8);
+  animation: pulse-ring 2s ease-out infinite;
+}
+:root[data-motion='calm'] .radio-station.is-tuned .radio-led { animation: none; }
+
+.radio-tags { display: flex; gap: 4px; flex: none; }
+
+.radio-skeleton { height: 52px; }

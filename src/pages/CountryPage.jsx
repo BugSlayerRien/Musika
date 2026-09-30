@@ -5,6 +5,7 @@ import { AeroButton } from '@/components/aero/AeroButton';
 import { ArtistCard } from '@/components/music/Cards';
 import { SongList } from '@/components/music/SongRow';
 import { Orb } from '@/components/profile/Orb';
+import { RadioDial } from '@/components/radio/RadioDial';
 import { usePlayer } from '@/context/PlayerContext';
 import { useProfile } from '@/context/ProfileContext';
 import { countryById } from '@/data/countries';
@@ -103,6 +104,8 @@ export function CountryPage() {
           </Panel>
         </div>
       </Panel>
+
+      <RadioDial country={country} />
 
       {songs.length === 0 ? (
         <Panel>

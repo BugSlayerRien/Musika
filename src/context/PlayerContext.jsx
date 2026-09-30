@@ -1,13 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { SONGS, songById } from '@/data/songs';
-import { previewFor } from '@/data/media';
+import { artistById } from '@/data/artists';
+import { previewFor, artworkFor } from '@/data/media';
+import { countStationClick } from '@/data/radio';
 import { sound } from '@/audio/soundEngine';
 import { useProfile } from '@/context/ProfileContext';
 
 const PlayerCtx = createContext(null);
 
 /**
- * Two playback modes, chosen per track.
+ * Three playback modes.
  *
  *  · `stream` — the real 30-second preview Apple publishes for the
  *    recording, routed through our audio graph so the visualiser
@@ -15,6 +17,16 @@ const PlayerCtx = createContext(null);
  *  · `synth`  — for entries nothing matched, an original motif
  *    generated from the song's seed. Always available, works
  *    offline, and keeps the app usable end to end.
+ *  · `radio`  — a live station from a country room. Open-ended:
+ *    no duration, no seeking, no track end.
+ *
+ * Radio gets its OWN audio element, deliberately without
+ * crossOrigin. Apple's CDN sends `Access-Control-Allow-Origin: *`,
+ * so previews can be routed through our analyser; the great
+ * majority of radio streams send no CORS headers at all, and
+ * setting crossOrigin on those makes the stream fail to load
+ * outright. Playing the station matters more than driving the
+ * visualiser from it, so radio plays straight to the output.
  */
 export function PlayerProvider({ children }) {
   const { profile } = useProfile();
@@ -27,8 +39,10 @@ export function PlayerProvider({ children }) {
   const [repeat, setRepeat] = useState('off'); // off | all | one
   const [history, setHistory] = useState([]);
   const [buffering, setBuffering] = useState(false);
+  const [station, setStation] = useState(null);
 
   const audioRef = useRef(null);
+  const radioRef = useRef(null);
   const tickRef = useRef(null);
 
   const current = useMemo(
@@ -37,18 +51,41 @@ export function PlayerProvider({ children }) {
   );
 
   const previewUrl = current ? previewFor(current.id) : null;
-  const mode = previewUrl ? 'stream' : 'synth';
+  const mode = station ? 'radio' : previewUrl ? 'stream' : 'synth';
 
-  /* ---- one audio element for the life of the app ---- */
-  if (!audioRef.current && typeof Audio !== 'undefined') {
-    const el = new Audio();
-    el.crossOrigin = 'anonymous';
-    el.preload = 'none';
-    audioRef.current = el;
+  /* ---- audio elements, one per source kind ---- */
+  if (typeof Audio !== 'undefined') {
+    if (!audioRef.current) {
+      const el = new Audio();
+      el.crossOrigin = 'anonymous'; // Apple allows it; enables the analyser
+      el.preload = 'none';
+      audioRef.current = el;
+    }
+    if (!radioRef.current) {
+      const el = new Audio();
+      el.preload = 'none'; // no crossOrigin — see the note above
+      radioRef.current = el;
+    }
   }
 
   /* ---- transport ---- */
+  /** Tune a live station. Leaves the song queue untouched. */
+  const tuneRadio = useCallback((next) => {
+    setStation(next);
+    setIndex(-1);
+    setPosition(0);
+    setPlaying(Boolean(next));
+    if (next) countStationClick(next.id);
+  }, []);
+
+  const stopRadio = useCallback(() => {
+    setStation(null);
+    setPlaying(false);
+    setPosition(0);
+  }, []);
+
   const playSong = useCallback((songId, contextQueue) => {
+    setStation(null);
     const q = contextQueue?.length ? contextQueue : queue;
     const i = q.indexOf(songId);
     if (contextQueue?.length) setQueue(q);
@@ -59,6 +96,7 @@ export function PlayerProvider({ children }) {
   }, [queue]);
 
   const toggle = useCallback(() => {
+    if (station) { setPlaying((p) => !p); return; }
     // pressing play with an empty deck drops the needle on the first track
     if (index < 0) {
       setIndex(0);
@@ -67,7 +105,7 @@ export function PlayerProvider({ children }) {
       return;
     }
     setPlaying((p) => !p);
-  }, [index]);
+  }, [index, station]);
 
   const next = useCallback(() => {
     setIndex((i) => {
@@ -102,12 +140,23 @@ export function PlayerProvider({ children }) {
      ------------------------------------------------------------ */
   useEffect(() => {
     const el = audioRef.current;
+    const radio = radioRef.current;
     sound.stopPreview();
-    if (el) {
-      el.pause();
-      el.removeAttribute('src');
-      el.load();
+
+    // Always silence whichever source is not in play.
+    if (el && mode !== 'stream') { el.pause(); el.removeAttribute('src'); el.load(); }
+    if (radio && mode !== 'radio') { radio.pause(); radio.removeAttribute('src'); radio.load(); }
+
+    if (mode === 'radio') {
+      setDuration(0);
+      if (radio && station?.url) {
+        radio.src = station.url;
+        radio.load();
+        setBuffering(true);
+      }
+      return;
     }
+
     setDuration(current ? (previewUrl ? 0 : current.seconds) : 0);
     if (!current) return;
 
@@ -118,21 +167,35 @@ export function PlayerProvider({ children }) {
       el.load();
       setBuffering(true);
     }
-  }, [current, previewUrl]);
+  }, [current, previewUrl, mode, station]);
 
   /* ---- volume follows the member's preference ---- */
   useEffect(() => {
     const el = audioRef.current;
-    if (!el) return;
-    // When the element is routed through our graph the musicBus gain
-    // already applies, so keep the element itself at unity there.
-    el.volume = el._musikaNode ? 1 : profile.audio.musicVolume;
-    el.muted = !profile.audio.enabled;
-  }, [profile.audio.musicVolume, profile.audio.enabled, current]);
+    if (el) {
+      // When the element is routed through our graph the musicBus gain
+      // already applies, so keep the element itself at unity there.
+      el.volume = el._musikaNode ? 1 : profile.audio.musicVolume;
+      el.muted = !profile.audio.enabled;
+    }
+    const radio = radioRef.current;
+    if (radio) {
+      // Radio never joins the graph, so its own volume is the only control.
+      radio.volume = profile.audio.musicVolume;
+      radio.muted = !profile.audio.enabled;
+    }
+  }, [profile.audio.musicVolume, profile.audio.enabled, current, station]);
 
-  /* ---- play / pause both sources ---- */
+  /* ---- play / pause whichever source is active ---- */
   useEffect(() => {
     const el = audioRef.current;
+    const radio = radioRef.current;
+
+    if (mode === 'radio') {
+      if (playing && radio?.src) radio.play().catch(() => setBuffering(false));
+      else radio?.pause();
+      return undefined;
+    }
 
     if (!playing || !current) {
       el?.pause();
@@ -153,12 +216,34 @@ export function PlayerProvider({ children }) {
     }
 
     return () => sound.stopPreview();
-  }, [playing, current, mode, profile.audio.enabled]);
+  }, [playing, current, mode, station, profile.audio.enabled]);
 
   /* ---- the clock: real audio reports its own time, synth is counted ---- */
   useEffect(() => {
     clearInterval(tickRef.current);
     const el = audioRef.current;
+
+    if (mode === 'radio') {
+      // A live stream has no length and never ends, so the only honest
+      // reading is how long you have been listening.
+      const radio = radioRef.current;
+      const onWaiting = () => setBuffering(true);
+      const onPlaying = () => setBuffering(false);
+      const onError = () => setBuffering(false);
+      radio?.addEventListener('waiting', onWaiting);
+      radio?.addEventListener('playing', onPlaying);
+      radio?.addEventListener('error', onError);
+
+      if (playing) {
+        tickRef.current = setInterval(() => setPosition((p) => p + 1), 1000);
+      }
+      return () => {
+        clearInterval(tickRef.current);
+        radio?.removeEventListener('waiting', onWaiting);
+        radio?.removeEventListener('playing', onPlaying);
+        radio?.removeEventListener('error', onError);
+      };
+    }
 
     if (mode === 'stream' && el) {
       const onTime = () => setPosition(el.currentTime);
@@ -199,7 +284,50 @@ export function PlayerProvider({ children }) {
       });
     }, 1000);
     return () => clearInterval(tickRef.current);
-  }, [playing, current, next, repeat, mode]);
+  }, [playing, current, next, repeat, mode, station]);
+
+  /* ------------------------------------------------------------
+     OS media controls — lock screen, headset buttons, media keys.
+     Matters most for radio, which people leave running.
+     ------------------------------------------------------------ */
+  useEffect(() => {
+    const ms = navigator.mediaSession;
+    if (!ms) return;
+
+    if (mode === 'radio' && station) {
+      ms.metadata = new MediaMetadata({
+        title: station.name,
+        artist: 'Live radio',
+        album: station.tags.join(' · ') || undefined,
+        artwork: station.favicon ? [{ src: station.favicon }] : [],
+      });
+    } else if (current) {
+      const art = artworkFor(current.id, 'md');
+      ms.metadata = new MediaMetadata({
+        title: current.title,
+        artist: artistById(current.artist)?.name ?? '',
+        album: current.album,
+        artwork: art ? [{ src: art, sizes: '600x600', type: 'image/jpeg' }] : [],
+      });
+    } else {
+      ms.metadata = null;
+    }
+
+    ms.playbackState = playing ? 'playing' : 'paused';
+
+    const set = (action, handler) => {
+      try { ms.setActionHandler(action, handler); } catch { /* unsupported */ }
+    };
+    set('play', () => setPlaying(true));
+    set('pause', () => setPlaying(false));
+    // Skipping is meaningless on a live stream.
+    set('nexttrack', mode === 'radio' ? null : next);
+    set('previoustrack', mode === 'radio' ? null : prev);
+
+    return () => {
+      ['play', 'pause', 'nexttrack', 'previoustrack'].forEach((a) => set(a, null));
+    };
+  }, [mode, station, current, playing, next, prev]);
 
   /* ---- keyboard transport ---- */
   useEffect(() => {
@@ -219,11 +347,16 @@ export function PlayerProvider({ children }) {
   const value = useMemo(() => ({
     queue, setQueue, index, current, playing, position, shuffle, repeat, history,
     mode, buffering, duration: effectiveDuration,
+    station, tuneRadio, stopRadio,
     playSong, toggle, next, prev, seek,
     setShuffle, setRepeat,
-    progress: effectiveDuration ? Math.min(1, position / effectiveDuration) : 0,
+    // A live stream has no end, so it has no progress.
+    progress: mode === 'radio' || !effectiveDuration
+      ? 0
+      : Math.min(1, position / effectiveDuration),
   }), [queue, index, current, playing, position, shuffle, repeat, history,
-    mode, buffering, effectiveDuration, playSong, toggle, next, prev, seek]);
+    mode, buffering, effectiveDuration, station, tuneRadio, stopRadio,
+    playSong, toggle, next, prev, seek]);
 
   return <PlayerCtx.Provider value={value}>{children}</PlayerCtx.Provider>;
 }

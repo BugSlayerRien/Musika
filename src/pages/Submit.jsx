@@ -9,6 +9,8 @@ import { useSound } from '@/hooks/useSound';
 import { COUNTRIES } from '@/data/countries';
 import { ARTISTS } from '@/data/artists';
 import { ALL_TAGS } from '@/data/songs';
+import { MusicBrainzNote } from '@/components/music/MusicBrainzNote';
+import { useMusicBrainzCheck } from '@/hooks/useMusicBrainzCheck';
 
 const BLANK = {
   title: '',
@@ -28,6 +30,7 @@ export function Submit() {
   const { play } = useSound();
   const [form, setForm] = useState({ ...BLANK, country: profile.country });
   const [touched, setTouched] = useState(false);
+  const mb = useMusicBrainzCheck();
 
   const set = (k) => (v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -71,6 +74,7 @@ export function Submit() {
     });
     setForm({ ...BLANK, country: form.country });
     setTouched(false);
+    mb.clear();
   };
 
   const toggleTag = (t) => setForm((f) => ({
@@ -102,6 +106,12 @@ export function Submit() {
           <Field
             label="Band or artist" value={form.artist} onChange={set('artist')}
             placeholder="The Dawn" maxLength={80} hint={err('artist')}
+            onBlur={(e) => mb.check(e.target.value)}
+          />
+          <MusicBrainzNote
+            result={mb.result}
+            pickedCountry={form.country}
+            onAccept={(code) => set('country')(code)}
           />
 
           <div className="row gap-3 wrap">
@@ -159,7 +169,7 @@ export function Submit() {
             </AeroButton>
             <AeroButton
               variant="ghost" size="lg" sound="back"
-              onClick={() => { setForm({ ...BLANK, country: profile.country }); setTouched(false); }}
+              onClick={() => { setForm({ ...BLANK, country: profile.country }); setTouched(false); mb.clear(); }}
             >
               Reset
             </AeroButton>

@@ -15,9 +15,52 @@ export function NowPlaying() {
   const {
     current, playing, toggle, next, prev, position, progress, seek,
     shuffle, setShuffle, repeat, setRepeat, mode, buffering, duration,
+    station, stopRadio,
   } = usePlayer();
   const { isHearted, toggleHeart } = useProfile();
   const { play } = useSound();
+
+  /* ---- Radio: a live stream has no track, no length and no queue ---- */
+  if (mode === 'radio' && station) {
+    return (
+      <footer className="nowplaying glass">
+        <div className="np-seek np-seek-live"><div className="np-seek-live-bar" /></div>
+        <div className="np-body">
+          <div className="np-track">
+            <span className="np-radio-badge" aria-hidden="true">📻</span>
+            <div className="stack grow" style={{ minWidth: 0 }}>
+              <span className="np-title truncate">{station.name}</span>
+              <span className="tiny muted truncate">
+                {buffering ? 'tuning…' : 'live'}
+                {station.language ? ` · ${station.language}` : ''}
+                {station.bitrate ? ` · ${station.bitrate}kbps` : ''}
+              </span>
+            </div>
+          </div>
+
+          <div className="np-transport">
+            <AeroButton
+              icon size="lg" variant="primary" sound={null}
+              onClick={() => { play(playing ? 'pause' : 'play'); toggle(); }}
+              aria-label={playing ? 'Pause' : 'Play'}
+              className="np-play"
+            >
+              {playing ? '❚❚' : '▶'}
+            </AeroButton>
+            <AeroButton
+              icon variant="ghost" sound="back"
+              onClick={stopRadio} aria-label="Stop radio"
+            >■</AeroButton>
+          </div>
+
+          <div className="np-meta">
+            <span className="chip chip-mint">LIVE</span>
+            <span className="tiny muted np-time">{formatDuration(position)}</span>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   if (!current) return null;
   const artist = artistById(current.artist);
