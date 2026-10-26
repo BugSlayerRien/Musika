@@ -18,6 +18,7 @@ const migrate = (stored) => ({
   ...DEFAULT_PROFILE,
   ...stored,
   orb: { ...DEFAULT_PROFILE.orb, ...stored.orb },
+  skin: { ...DEFAULT_PROFILE.skin, ...stored.skin },
   theme: { ...DEFAULT_PROFILE.theme, ...stored.theme },
   audio: { ...DEFAULT_PROFILE.audio, ...stored.audio },
 });
@@ -42,6 +43,18 @@ export function ProfileProvider({ children }) {
     (fields) => setProfile((p) => ({ ...p, orb: { ...p.orb, ...fields } })),
     [setProfile],
   );
+
+  /* The profile's own look. Deliberately separate from patchTheme:
+     a skin belongs to the profile and will be served to other
+     viewers; a theme belongs to this browser and never leaves it. */
+  const patchSkin = useCallback(
+    (fields) => setProfile((p) => ({ ...p, skin: { ...p.skin, ...fields } })),
+    [setProfile],
+  );
+
+  const applySkinPreset = useCallback((preset) => {
+    setProfile((p) => ({ ...p, skin: { ...p.skin, ...preset } }));
+  }, [setProfile]);
 
   /* ------------------------------------------------------------
      Applying a style rewrites the whole look in one move —
@@ -172,6 +185,8 @@ export function ProfileProvider({ children }) {
     patchTheme,
     patchAudio,
     patchOrb,
+    patchSkin,
+    applySkinPreset,
     applyStyle,
     applyAuraPreset,
     toggleHeart,
@@ -182,7 +197,7 @@ export function ProfileProvider({ children }) {
     addSubmission,
     setModules,
   }), [profile, setProfile, resetProfile, patch, patchTheme, patchAudio, patchOrb,
-    applyStyle, applyAuraPreset, toggleHeart, isHearted, toggleAnthem, isAnthem,
+    patchSkin, applySkinPreset, applyStyle, applyAuraPreset, toggleHeart, isHearted, toggleAnthem, isAnthem,
     visitCountry, addSubmission, setModules]);
 
   return <ProfileCtx.Provider value={value}>{children}</ProfileCtx.Provider>;

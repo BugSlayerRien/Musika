@@ -171,12 +171,3 @@
 :root[data-motion='calm'] .particle { opacity: .4; }
 :root[data-motion='calm'] .flare { opacity: .3; }
 
-/* ---------------- Cursor trail ---------------- */
-.trail-dot {
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  will-change: transform, opacity;
-}

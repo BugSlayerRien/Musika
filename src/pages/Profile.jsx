@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Panel, SectionTitle, Chip, Empty, Field } from '@/components/aero/Controls';
 import { AeroButton } from '@/components/aero/AeroButton';
 import { Orb } from '@/components/profile/Orb';
+import { ProfileCard } from '@/components/profile/ProfileCard';
 import { SongList } from '@/components/music/SongRow';
 import { SongCard } from '@/components/music/Cards';
 import { useProfile } from '@/context/ProfileContext';
@@ -227,41 +228,16 @@ export function Profile() {
   return (
     <>
       {/* ---------------- Banner ---------------- */}
-      <Panel className="profile-banner" pad={false} irisEdge elevation="deep">
-        <div className="profile-banner-art" />
-        <div className="profile-banner-body">
-          <Orb config={profile.orb} size={128} className="profile-orb" />
-          <div className="stack gap-2 grow" style={{ minWidth: 220 }}>
-            <div className="row gap-2 wrap">
-              <Chip tone="iris">{profile.title}</Chip>
-              <Link to={`/country/${country?.id}`}>
-                <Chip tone="aqua"><Flag code={profile.country} size="sm" /> {country?.name}</Chip>
-              </Link>
-              {profile.pronouns && <Chip>{profile.pronouns}</Chip>}
-            </div>
-            <h1 style={{ fontSize: 'clamp(28px, 4vw, 46px)' }}>
-              <span className="iridescent">{profile.name}</span>
-            </h1>
-            <span className="small muted">@{profile.handle}</span>
-            <p className="small soft" style={{ maxWidth: '62ch', margin: '6px 0 0' }}>{profile.bio}</p>
-            {profile.link && (
-              <a className="tiny" href={profile.link} target="_blank" rel="noreferrer" style={{ color: 'var(--aura-3)' }}>
-                ↗ {profile.link.replace(/^https?:\/\//, '')}
-              </a>
-            )}
-          </div>
-          <div className="stack gap-2">
-            <AeroButton to="/studio" variant="primary">⚙ Customise</AeroButton>
-            <AeroButton to="/submit" variant="ghost">✚ File a song</AeroButton>
-          </div>
-        </div>
-        <div className="profile-quickstats">
-          <span><b>{stats.hearted}</b> hearted</span>
-          <span><b>{stats.countries}</b> rooms</span>
-          <span><b>{stats.submissions}</b> filed</span>
-          <span><b>{formatCount(SONGS.length)}</b> in atlas</span>
-        </div>
-      </Panel>
+      <ProfileCard
+        profile={profile}
+        owner
+        stats={[
+          { label: 'hearted', value: stats.hearted },
+          { label: 'rooms', value: stats.countries },
+          { label: 'filed', value: stats.submissions },
+          { label: 'in atlas', value: formatCount(SONGS.length) },
+        ]}
+      />
 
       {profile.modules.map((id) => MODULES[id]?.() ?? null)}
     </>

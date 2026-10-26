@@ -54,6 +54,20 @@
 }
 :root[data-motion='calm'] .radio-station.is-tuned .radio-led { animation: none; }
 
-.radio-tags { display: flex; gap: 4px; flex: none; }
+.radio-tags {
+  display: flex;
+  gap: 4px;
+  /* Shrink before the station name does — a half-visible name is
+     useless, a dropped tag is not. */
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.radio-tags .chip { overflow: hidden; text-overflow: ellipsis; }
+
+/* Below the two-column breakpoint the tags are pure decoration. */
+@media (max-width: 1200px) {
+  .radio-tags { display: none; }
+}
 
 .radio-skeleton { height: 52px; }

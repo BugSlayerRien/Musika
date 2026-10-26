@@ -157,17 +157,6 @@
 .scenery-sunset { background: linear-gradient(135deg, #4a1440, #fb7185, #7a2352); }
 .scenery-chrome { background: linear-gradient(135deg, #262336, #a3a0b8, #45415e); }
 
-.cursor-dot {
-  width: 46px; height: 34px;
-  flex: none;
-  border-radius: var(--r-sm);
-  background:
-    radial-gradient(circle at 30% 50%, #fff 0 3px, transparent 4px),
-    radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--aura-2) 70%, transparent) 0 5px, transparent 6px),
-    radial-gradient(circle at 70% 50%, color-mix(in oklab, var(--aura-3) 60%, transparent) 0 7px, transparent 8px),
-    rgba(0,0,0,.3);
-  border: 1px solid rgba(255,255,255,.3);
-}
 
 /* ---------------- module rows ---------------- */
 .module-row {

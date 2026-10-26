@@ -37,12 +37,6 @@ export function BootScreen({ onDone }) {
     <div className={`boot ${leaving ? 'is-leaving' : ''}`}>
       <div className="boot-bg" />
       <div className="boot-inner">
-        <div className="boot-orb">
-          <span className="boot-orb-ring" />
-          <span className="boot-orb-ring boot-orb-ring-2" />
-          <span className="boot-orb-core" />
-        </div>
-
         <h1 className="boot-word iridescent">MUSIKA</h1>
         <p className="boot-tag">Classic English songs of the world</p>
 
@@ -54,11 +48,6 @@ export function BootScreen({ onDone }) {
           <span className="boot-dot" />
           <span className="tiny muted">{LINES[step]}</span>
         </div>
-
-        <p className="tiny muted boot-note">
-          Pressing enter starts the interface sounds. You can silence everything in the Profile
-          Studio at any time.
-        </p>
       </div>
     </div>
   );

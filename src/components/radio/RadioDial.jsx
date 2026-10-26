@@ -88,7 +88,7 @@ export function RadioDial({ country }) {
               {tuned(s) && buffering && <span className="tiny muted">tuning…</span>}
               {s.tags.length > 0 && (
                 <span className="radio-tags hide-sm">
-                  {s.tags.slice(0, 2).map((t) => <Chip key={t}>{t}</Chip>)}
+                  {s.tags.slice(0, 1).map((t) => <Chip key={t}>{t}</Chip>)}
                 </span>
               )}
             </button>

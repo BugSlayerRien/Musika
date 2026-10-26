@@ -114,7 +114,8 @@ create table users (
 -- and its shape changes every time a style or option is added.
 create table user_prefs (
   user_id     uuid primary key references users(id) on delete cascade,
-  theme       jsonb not null default '{}',
+  theme       jsonb not null default '{}',   -- private: how the APP looks to them
+  skin        jsonb not null default '{}',   -- public:  how their PROFILE looks to everyone
   audio       jsonb not null default '{}',
   orb         jsonb not null default '{}',
   modules     text[] not null default '{}',
@@ -178,6 +179,12 @@ create table badges_awarded (
   changes, every cover that has no real artwork silently changes too.
 - **Preferences stay JSON.** They are read as a blob and written as a blob. Normalising them into
   40 columns buys nothing and costs a migration every time a style is added.
+- **`skin` and `theme` are separate on purpose, and have different visibility.** `theme` is private
+  to its owner and never leaves their browser. `skin` is part of the public profile and must be
+  served with it — `GET /api/members/:handle` returns it so a visitor sees the owner's skin inside
+  their own app theme. The front end is already built this way: `ProfileCard` takes a profile
+  object and projects `skin` onto a wrapper element rather than `:root`, so two skins can coexist
+  on one page. Nothing needs reshaping; return `user_prefs.skin` verbatim.
 - **`plays` is an append-only log.** Do not increment a counter on `songs` — you lose the ability
   to compute "most played this week", which the Listening Room wants.
 
@@ -213,7 +220,7 @@ GET    /api/songs?country=&decade=&tag=&sort=&cursor=
 GET    /api/songs/:id
 POST   /api/songs                         submit — creates status='pending'
 GET    /api/members?cursor=
-GET    /api/members/:handle
+GET    /api/members/:handle               includes their public `skin`
 
 GET    /api/me                            profile + prefs + hearts + anthems
 PATCH  /api/me                            partial profile / prefs update

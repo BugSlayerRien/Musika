@@ -13,7 +13,8 @@ layer synthesised in the browser. Ten selectable styles, from textbook Aqua Sky 
 Meadow to Cathedral Gothic and Cyber Terminal.
 
 Cover art and 30-second previews are the **real recordings**, resolved against the public iTunes
-Search API — 52 of 53 entries, with a procedural fallback for anything unmatched.
+Search API — 52 of 53 entries, with a procedural fallback for anything unmatched. Every band is
+independently checked against MusicBrainz, and each country room carries a **live radio dial**.
 
 ---
 
@@ -50,9 +51,10 @@ Then open http://localhost:5173.
 | `npm run preview` | serve the build |
 | `npm run assets` | regenerate the PNG wallpapers and decals from their SVG sources |
 | `npm run media` | re-resolve cover art and previews against the iTunes Search API |
+| `npm run verify` | re-check every band's country and era against MusicBrainz |
 
-The generated assets and `src/data/media.json` are committed, so a clean checkout runs without
-either script.
+The generated assets, `src/data/media.json` and `src/data/verified.json` are all committed, so a
+clean checkout runs without any of these scripts.
 
 ---
 
@@ -62,7 +64,7 @@ either script.
 | --- | --- |
 | `/` | Listening Room — hero, your home country's shelf, the rotation, fresh submissions |
 | `/atlas` | Every country room, filterable by region and sortable |
-| `/country/:id` | One room: hero, decade shelves, the bands, the curators |
+| `/country/:id` | One room: hero, **live radio dial**, decade shelves, the bands, the curators |
 | `/artist/:id` | A band, its English-language entries, and its neighbours |
 | `/song/:id` | One entry: sleeve, liner note, submitter, stats, related |
 | `/catalogue` | The whole catalogue with country / decade / tag / sort filters, grid or list |
@@ -101,15 +103,42 @@ runtime. No save button — changes apply as you make them, and persist in `loca
 
 ## Music
 
-Playback has two modes, chosen per track and labelled in the player so it never misleads:
+Playback has three modes, labelled in the player so it never misleads:
 
 - **`30s`** — the real preview Apple publishes for that recording, streamed from their CDN. Their
   audio CDN sends `Access-Control-Allow-Origin: *`, so it routes through the app's own Web Audio
   graph and the visualiser reads the actual waveform.
 - **`~`** — for the one entry with no match, an original motif synthesised from the song's seed.
+- **`LIVE`** — a real radio station from a country room, streaming now.
 
-Nothing is hosted or cached: artwork and previews are hotlinked exactly as Apple publishes them,
-and the repo contains no third-party media. See [docs/ASSETS.md](docs/ASSETS.md).
+Nothing is hosted, proxied or cached: artwork and previews are hotlinked exactly as Apple
+publishes them, radio streams connect browser-to-station, and the repo contains no third-party
+media. See [docs/ASSETS.md](docs/ASSETS.md).
+
+OS media controls (lock screen, headset buttons, media keys) work in all three modes.
+
+---
+
+## Trusted data
+
+The atlas rests on one claim — this band is from this country — so it is checked rather than
+asserted. `npm run verify` matches every band against **MusicBrainz** (keyless, CC0) and records
+the result: **48 of 48 matched**, 47 country confirmations, 1 dispute.
+
+A `✓ MusicBrainz` chip appears on an artist page only when the two agree. Where they disagree the
+UI stays quiet — MusicBrainz is a second opinion, not an authority — and the disagreement is
+reported to the console for a person to judge.
+
+The submit form asks MusicBrainz about the band as you type it and offers a one-click country
+correction, catching a miscategorised entry before it enters the atlas instead of after.
+
+---
+
+## Live radio
+
+Every country room has a dial of real stations from that country, via the public-domain directory
+at **radio-browser.info**. Stations are filtered to HTTPS only — roughly a quarter still stream
+over plain `http`, which a secure page silently refuses to play.
 
 ---
 
@@ -155,6 +184,7 @@ Full provenance in [docs/ASSETS.md](docs/ASSETS.md).
 scripts/
 ├─ build-assets.mjs         SVG -> PNG rasteriser (npm run assets)
 ├─ fetch-media.mjs          iTunes Search resolver (npm run media)
+├─ verify-artists.mjs       MusicBrainz verifier (npm run verify)
 └─ lib/
    ├─ svg-scenes.mjs        the 10 wallpaper drawings
    └─ svg-decals.mjs        the 20 sticker drawings
@@ -184,6 +214,7 @@ src/
 │
 ├─ hooks/
 │  ├─ useLocalStorage.js    persisted state with a migration hook
+│  ├─ useMusicBrainzCheck.js  live second opinion on the submit form
 │  └─ useSound.js           the one entry point components use to make noise
 │
 ├─ data/
@@ -192,6 +223,9 @@ src/
 │  ├─ songs.js              the catalogue, as compact tuples
 │  ├─ media.json            resolved artwork + preview URLs (npm run media)
 │  ├─ media.js              accessors and coverage stats
+│  ├─ verified.json         MusicBrainz check results (npm run verify)
+│  ├─ verified.js           accessors for the above
+│  ├─ radio.js              radio-browser client (server pool, HTTPS filter)
 │  ├─ styles.js             the 10 style presets and particle vocabulary
 │  ├─ fonts.js              the 11 typeface pairings
 │  └─ profilePresets.js     palettes, emblems, frames, badges, members, defaults
@@ -199,7 +233,8 @@ src/
 ├─ components/
 │  ├─ aero/                 AeroButton, Controls (Panel/Switch/Slider/…), Scenery, CursorTrail
 │  ├─ layout/               AppShell, TopBar, SideRail, BootScreen
-│  ├─ music/                CoverArt, Flag, SongRow, Cards
+│  ├─ music/                CoverArt, Flag, SongRow, Cards, MusicBrainzNote
+│  ├─ radio/                RadioDial
 │  ├─ player/               NowPlaying, Visualizer
 │  └─ profile/              Orb
 │
@@ -226,6 +261,7 @@ Each component that needs page-specific CSS keeps it next to itself (`nowplaying
 ## Stack
 
 React 18 · Vite 5 · React Router 6 · plain CSS with custom properties · Web Audio API ·
+Media Session API ·
 `sharp` (build-time only, for the PNG generator). No UI framework and no icon font — the only
 runtime dependencies are React, React DOM and React Router.
 

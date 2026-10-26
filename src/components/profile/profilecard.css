@@ -1,0 +1,189 @@
+/* ============================================================
+   Profile card
+   ------------------------------------------------------------
+   Everything here reads --skin-* custom properties set inline on
+   .profile-card by skinVars(). Nothing reads the app's --aura-*
+   tokens, which is what lets a card keep its own look on a page
+   themed by somebody else.
+   ============================================================ */
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-radius: calc(var(--r-lg) * var(--skin-corners, 1));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .20), rgba(255, 255, 255, .05)),
+    rgba(var(--skin-tint, 26, 10, 54), var(--skin-glass, .42));
+}
+
+/* ---------------- Banner ---------------- */
+.profile-card-banner {
+  position: relative;
+  height: var(--skin-banner-h, 170px);
+  overflow: hidden;
+  transition: height var(--dur-3) var(--ease-glide);
+}
+
+.profile-card-banner-art,
+.profile-card-banner-veil {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* Gloss + floor shadow, shared by every treatment. */
+.profile-card-banner-veil {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, .30), transparent 45%, rgba(0, 0, 0, .34));
+}
+
+/* --- aurora --- */
+.skin-banner-aurora .profile-card-banner-art {
+  background:
+    radial-gradient(70% 120% at 18% 0%, var(--skin-a1), transparent 62%),
+    radial-gradient(70% 120% at 82% 20%, var(--skin-a2), transparent 60%),
+    linear-gradient(135deg, var(--skin-a1), var(--skin-a2));
+  filter: saturate(1.1);
+}
+
+/* --- generated wallpaper --- */
+.skin-banner-wallpaper .profile-card-banner-art {
+  background-image: var(--skin-scene);
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- plain gradient --- */
+.skin-banner-gradient .profile-card-banner-art {
+  background: linear-gradient(115deg, var(--skin-a1), var(--skin-a2));
+}
+
+/* --- diagonal stripes --- */
+.skin-banner-stripes .profile-card-banner-art {
+  background:
+    repeating-linear-gradient(115deg,
+      rgba(255, 255, 255, .16) 0 10px, transparent 10px 24px),
+    linear-gradient(115deg, var(--skin-a1), var(--skin-a2));
+}
+
+/* --- blueprint grid --- */
+.skin-banner-grid .profile-card-banner-art {
+  background:
+    linear-gradient(rgba(255, 255, 255, .17) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, rgba(255, 255, 255, .17) 1px, transparent 1px) 0 0 / 28px 100%,
+    linear-gradient(135deg, var(--skin-a1), var(--skin-a2));
+}
+
+/* --- bubbles --- */
+.skin-banner-bubbles .profile-card-banner-art {
+  background:
+    radial-gradient(circle at 12% 70%, rgba(255, 255, 255, .5) 0 14px, transparent 15px),
+    radial-gradient(circle at 28% 30%, rgba(255, 255, 255, .38) 0 22px, transparent 23px),
+    radial-gradient(circle at 52% 76%, rgba(255, 255, 255, .34) 0 30px, transparent 31px),
+    radial-gradient(circle at 73% 26%, rgba(255, 255, 255, .42) 0 18px, transparent 19px),
+    radial-gradient(circle at 88% 62%, rgba(255, 255, 255, .34) 0 26px, transparent 27px),
+    linear-gradient(135deg, var(--skin-a1), var(--skin-a2));
+}
+
+/* --- flat --- */
+.skin-banner-solid .profile-card-banner-art { background: var(--skin-a1); }
+.skin-banner-solid .profile-card-banner-veil { background: none; }
+
+/* ---------------- Body ---------------- */
+.profile-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  padding: 0 var(--sp-5) var(--sp-4);
+  margin-top: -58px;
+}
+
+.profile-card-orb {
+  box-shadow: 0 12px 32px rgba(8, 2, 20, .55);
+  border-radius: 50%;
+}
+
+/* ---------------- Name treatments ---------------- */
+.profile-card-name {
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.05;
+  margin: 0;
+}
+.skin-name-solid .profile-card-name { color: var(--skin-ink, inherit); }
+
+.skin-name-gradient .profile-card-name {
+  background: linear-gradient(100deg, var(--skin-a1), var(--skin-a2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skin-name-iridescent .profile-card-name {
+  background: var(--iris);
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: iris-drift 9s linear infinite;
+}
+:root[data-motion='calm'] .skin-name-iridescent .profile-card-name { animation: none; }
+
+.skin-name-outline .profile-card-name {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--skin-a2);
+  text-shadow: 0 0 22px color-mix(in oklab, var(--skin-a1) 55%, transparent);
+}
+
+/* ---------------- Ink ----------------
+   A card can be light-on-dark or dark-on-light independently of
+   the app around it, so these cannot use the global ink tokens. */
+.skin-ink-light { --skin-ink: #f6f1ff; --skin-ink-soft: #cdbdf0; --skin-ink-muted: #9c88c9; }
+.skin-ink-dark  { --skin-ink: #1c1136; --skin-ink-soft: #453563; --skin-ink-muted: #6f6193; }
+
+.skin-ink-dark.profile-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .34)),
+    rgba(var(--skin-tint, 255, 255, 255), var(--skin-glass, .55));
+  border-color: rgba(255, 255, 255, .9);
+}
+
+.profile-card-handle { color: var(--skin-ink-muted); }
+.profile-card-bio {
+  color: var(--skin-ink-soft);
+  max-width: 62ch;
+  margin: 6px 0 0;
+}
+.profile-card-link { color: var(--skin-a2); }
+.skin-ink-dark .profile-card-link { color: color-mix(in oklab, var(--skin-a1) 80%, black); }
+
+/* ---------------- Stat strip ---------------- */
+.profile-card-stats {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(0, 0, 0, .16);
+  font-size: var(--t-sm);
+  color: var(--skin-ink-soft);
+}
+.skin-ink-dark .profile-card-stats {
+  background: rgba(255, 255, 255, .4);
+  border-top-color: rgba(90, 110, 150, .2);
+}
+.profile-card-stats b {
+  font-family: var(--font-display);
+  color: var(--skin-ink);
+  margin-right: 4px;
+}
+
+@media (max-width: 700px) {
+  .profile-card-body { margin-top: -42px; padding: 0 var(--sp-3) var(--sp-3); }
+  .profile-card-stats { padding: var(--sp-3); gap: var(--sp-4); }
+}

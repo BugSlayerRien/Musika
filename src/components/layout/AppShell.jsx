@@ -4,7 +4,6 @@ import { TopBar } from '@/components/layout/TopBar';
 import { SideRail } from '@/components/layout/SideRail';
 import { NowPlaying } from '@/components/player/NowPlaying';
 import { Scenery } from '@/components/aero/Scenery';
-import { CursorTrail } from '@/components/aero/CursorTrail';
 import { useSound } from '@/hooks/useSound';
 import { usePlayer } from '@/context/PlayerContext';
 
@@ -24,7 +23,6 @@ export function AppShell() {
   return (
     <div className={`shell ${current ? 'has-player' : ''}`}>
       <Scenery />
-      <CursorTrail />
       <TopBar onMenu={() => setRailOpen((o) => !o)} />
       <div className="shell-body">
         <SideRail open={railOpen} onClose={() => setRailOpen(false)} />

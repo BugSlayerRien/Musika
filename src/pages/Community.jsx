@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { Panel, SectionTitle, Chip, Field, Empty } from '@/components/aero/Controls';
 import { AeroButton } from '@/components/aero/AeroButton';
 import { Orb } from '@/components/profile/Orb';
+import { ProfileCard } from '@/components/profile/ProfileCard';
 import { SongList } from '@/components/music/SongRow';
 import { useSound } from '@/hooks/useSound';
 import { MEMBERS, memberByHandle, badgeById } from '@/data/profilePresets';
@@ -103,25 +104,16 @@ export function MemberPage() {
 
   return (
     <>
-      <Panel className="hero" irisEdge elevation="deep">
-        <div className="row gap-5 wrap" style={{ alignItems: 'center' }}>
-          <Orb config={member.orb} size={120} spinning />
-          <div className="stack gap-3 grow" style={{ minWidth: 260 }}>
-            <div className="row gap-2 wrap">
-              <Chip tone="violet">{member.title}</Chip>
-              <Link to={`/country/${country?.id}`}>
-                <Chip tone="aqua"><Flag code={member.country} size="sm" /> {country?.name}</Chip>
-              </Link>
-            </div>
-            <h1><span className="iridescent">{member.name}</span></h1>
-            <p className="lede" style={{ margin: 0 }}>@{member.handle}</p>
-            <div className="row gap-3 wrap">
-              <span className="hero-stat"><b>{songs.length}</b><span className="tiny muted">entries filed</span></span>
-              <span className="hero-stat"><b>{member.badges.length}</b><span className="tiny muted">badges</span></span>
-            </div>
-          </div>
-        </div>
-      </Panel>
+      {/* Same component as your own profile, rendered from a different
+          profile object — which is exactly how it will work once a
+          backend serves other members. Their skin, your app theme. */}
+      <ProfileCard
+        profile={member}
+        stats={[
+          { label: 'entries filed', value: songs.length },
+          { label: 'badges', value: member.badges.length },
+        ]}
+      />
 
       {member.badges.length > 0 && (
         <Panel>

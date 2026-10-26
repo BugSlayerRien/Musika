@@ -1,4 +1,8 @@
-.nowplaying {
+/* `.nowplaying.glass` rather than `.nowplaying`: the component
+   stylesheet can bundle before the global one, and `.glass` sets
+   `position: relative`. At equal specificity that wins on source
+   order and the bar silently stops being fixed. */
+.nowplaying.glass {
   position: fixed;
   left: 0; right: 0; bottom: 0;
   z-index: 90;

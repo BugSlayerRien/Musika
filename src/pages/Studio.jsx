@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Panel, SectionTitle, Field, Switch, Slider, Segmented, Chip, ColorWell } from '@/components/aero/Controls';
 import { AeroButton } from '@/components/aero/AeroButton';
 import { Orb } from '@/components/profile/Orb';
@@ -11,7 +12,11 @@ import { songById } from '@/data/songs';
 import { STYLES, STYLE_FAMILIES, PARTICLE_OPTIONS } from '@/data/styles';
 import { TYPEFACES } from '@/data/fonts';
 import {
-  AURA_PRESETS, ORB_PATTERNS, EMBLEMS, FRAMES, CURSORS,
+  SKIN_PRESETS, BANNERS, BANNER_SCENES, BANNER_HEIGHTS, NAME_STYLES,
+} from '@/data/profileSkins';
+import { ProfileCard } from '@/components/profile/ProfileCard';
+import {
+  AURA_PRESETS, ORB_PATTERNS, EMBLEMS, FRAMES,
   TITLES, PROFILE_MODULES, DEFAULT_PROFILE,
 } from '@/data/profilePresets';
 import './studio.css';
@@ -20,6 +25,7 @@ const TABS = [
   { id: 'style', label: '◈ Style' },
   { id: 'identity', label: '☻ Identity' },
   { id: 'avatar', label: '◍ Avatar' },
+  { id: 'skin', label: '▣ Profile' },
   { id: 'theme', label: '✦ Theme' },
   { id: 'type', label: 'Aa Type' },
   { id: 'sound', label: '♪ Sound' },
@@ -35,11 +41,15 @@ const SFX_BOARD = [
 export function Studio() {
   const {
     profile, patch, patchTheme, patchAudio, patchOrb,
-    setModules, applyStyle, applyAuraPreset, resetProfile, setProfile, toggleAnthem,
+    setModules, applyStyle, applyAuraPreset, patchSkin, applySkinPreset,
+    resetProfile, setProfile, toggleAnthem,
   } = useProfile();
   const { play } = useSound();
   const toast = useToast();
-  const [tab, setTab] = useState('style');
+  // ?tab=skin lets the profile's Customise button land on the right pane.
+  const [params, setParams] = useSearchParams();
+  const tab = TABS.some((t) => t.id === params.get('tab')) ? params.get('tab') : 'style';
+  const setTab = (id) => setParams(id === 'style' ? {} : { tab: id }, { replace: true });
   const [packSound, setPackSound] = useState(true);
   const fileRef = useRef(null);
 
@@ -279,6 +289,150 @@ export function Studio() {
     </div>
   );
 
+  /* ---------------- Profile skin ---------------- */
+  const sk = profile.skin;
+
+  const Skin = (
+    <div className="stack gap-4">
+      <Panel className="stack gap-4">
+        <SectionTitle
+          eyebrow="Live preview"
+          title="Your profile, as others will see it"
+          sub="A skin belongs to your profile, not to your browser. Your Theme changes how the app looks to you; this changes how your page looks to everyone."
+          action={<AeroButton to="/profile" variant="ghost" size="sm">Open profile →</AeroButton>}
+        />
+        <ProfileCard
+          profile={profile}
+          stats={[
+            { label: 'hearted', value: profile.hearted.length },
+            { label: 'rooms', value: profile.visited.length },
+            { label: 'filed', value: profile.submissions.length },
+          ]}
+        />
+      </Panel>
+
+      <Panel className="stack gap-4">
+        <SectionTitle eyebrow="Start from" title="Ready-made looks" />
+        <div className="style-grid">
+          {SKIN_PRESETS.map((p) => (
+            <button
+              key={p.id}
+              className="style-card"
+              onPointerEnter={() => play('hover')}
+              onClick={() => {
+                applySkinPreset(p.skin);
+                setTimeout(() => play('confirm'), 50);
+                toast(`${p.label} applied to your profile`, { icon: '▣', tone: 'good' });
+              }}
+            >
+              <span
+                className="style-shot"
+                style={{
+                  background: `linear-gradient(135deg, ${p.skin.accent[0]}, ${p.skin.accent[1]})`,
+                }}
+              >
+                <span className="style-swatches">
+                  {p.skin.accent.map((c) => <i key={c} style={{ background: c }} />)}
+                </span>
+              </span>
+              <span className="style-meta">
+                <strong className="small">{p.label}</strong>
+                <span className="tiny muted clamp-2">{p.blurb}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </Panel>
+
+      <div className="studio-cols">
+        <Panel className="stack gap-4">
+          <SectionTitle eyebrow="Header" title="Banner" />
+          <div className="field">
+            <span className="field-label">Treatment</span>
+            <div className="row wrap gap-2">
+              {BANNERS.map((b) => (
+                <Chip key={b.id} active={sk.banner === b.id} onClick={() => patchSkin({ banner: b.id })}>
+                  {b.label}
+                </Chip>
+              ))}
+            </div>
+            <span className="tiny muted">
+              {BANNERS.find((b) => b.id === sk.banner)?.blurb}
+            </span>
+          </div>
+
+          {sk.banner === 'wallpaper' && (
+            <div className="field">
+              <span className="field-label">Scenery</span>
+              <div className="row wrap gap-2">
+                {BANNER_SCENES.map((id) => (
+                  <Chip key={id} active={sk.scene === id} onClick={() => patchSkin({ scene: id })}>
+                    {id}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="field">
+            <span className="field-label">Height</span>
+            <Segmented
+              value={sk.height}
+              onChange={(v) => patchSkin({ height: v })}
+              ariaLabel="Banner height"
+              options={BANNER_HEIGHTS.map((h) => ({ id: h.id, label: h.label }))}
+            />
+          </div>
+        </Panel>
+
+        <Panel className="stack gap-4">
+          <SectionTitle eyebrow="Colour and type" title="Accent, ink, name" />
+          <div className="row gap-4 wrap">
+            <ColorWell
+              label="Accent 1" value={sk.accent[0]}
+              onChange={(v) => patchSkin({ accent: [v, sk.accent[1]] })}
+            />
+            <ColorWell
+              label="Accent 2" value={sk.accent[1]}
+              onChange={(v) => patchSkin({ accent: [sk.accent[0], v] })}
+            />
+          </div>
+
+          <div className="field">
+            <span className="field-label">Card ink</span>
+            <Segmented
+              value={sk.ink} onChange={(v) => patchSkin({ ink: v })}
+              ariaLabel="Card ink"
+              options={[{ id: 'light', label: 'Light on dark' }, { id: 'dark', label: 'Dark on light' }]}
+            />
+          </div>
+
+          <div className="field">
+            <span className="field-label">Name treatment</span>
+            <div className="row wrap gap-2">
+              {NAME_STYLES.map((n) => (
+                <Chip key={n.id} active={sk.name === n.id} onClick={() => patchSkin({ name: n.id })}>
+                  {n.label}
+                </Chip>
+              ))}
+            </div>
+          </div>
+
+          <Slider
+            label="Corner roundness" value={sk.corners} min={0} max={1.4} step={0.02}
+            display={sk.corners < 0.3 ? 'sharp' : sk.corners > 1 ? 'pillowy' : 'soft'}
+            onChange={(v) => patchSkin({ corners: v })}
+          />
+          <Slider
+            label="Card opacity" value={sk.glass} min={0.1} max={0.92} step={0.01}
+            display={sk.glass.toFixed(2)}
+            onChange={(v) => patchSkin({ glass: v })}
+          />
+        </Panel>
+      </div>
+    </div>
+  );
+
   /* ---------------- Theme ---------------- */
   const Theme = (
     <div className="stack gap-4">
@@ -358,7 +512,7 @@ export function Studio() {
         </Panel>
 
         <Panel className="stack gap-4">
-          <SectionTitle eyebrow="Comfort" title="Density, motion, pointer" />
+          <SectionTitle eyebrow="Comfort" title="Density and motion" />
           <div className="field">
             <span className="field-label">Density</span>
             <Segmented
@@ -375,25 +529,6 @@ export function Studio() {
               options={[{ id: 'full', label: 'Full weather' }, { id: 'calm', label: 'Calm' }]}
             />
             <span className="tiny muted">Calm stops the drifting, spinning and rising. Everything still works.</span>
-          </div>
-          <div className="field">
-            <span className="field-label">Cursor trail</span>
-            <div className="stack gap-2">
-              {CURSORS.map((c) => (
-                <button
-                  key={c.id}
-                  className={`scenery-opt ${t.cursor === c.id ? 'is-on' : ''}`}
-                  onPointerEnter={() => play('hover')}
-                  onClick={() => { play('confirm'); patchTheme({ cursor: c.id }); }}
-                >
-                  <span className="cursor-dot" />
-                  <span className="stack grow">
-                    <strong className="small">{c.label}</strong>
-                    <span className="tiny muted">{c.blurb}</span>
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
         </Panel>
       </div>
@@ -672,7 +807,7 @@ export function Studio() {
   );
 
   const PANELS = {
-    style: Style, identity: Identity, avatar: Avatar, theme: Theme,
+    style: Style, identity: Identity, avatar: Avatar, skin: Skin, theme: Theme,
     type: Type, sound: Sound, layout: Layout, data: Data,
   };
 
